@@ -47,6 +47,7 @@
         .hero h1 .gr{background:linear-gradient(135deg,var(--emerald),#34d399,var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
         .hero p{font-size:16px;color:var(--txt2);max-width:550px;margin:0 auto 32px;line-height:1.8}
         .hero-stats{display:flex;justify-content:center;gap:40px;margin-top:50px;flex-wrap:wrap}
+        .hero-stat{display:none}.hero-stat.visible{display:block}
         .hero-stat .num{font-size:28px;font-weight:900;color:var(--emerald)}
         .hero-stat .lab{font-size:12px;color:var(--txt3)}
         .sec{position:relative;z-index:1;max-width:1250px;margin:0 auto;padding:50px 20px}
@@ -74,6 +75,17 @@
         .pcard-pr{display:flex;align-items:center;justify-content:space-between}
         .pprice{font-size:18px;font-weight:900;color:var(--emerald)}
         .buy-btn{padding:6px 14px;background:linear-gradient(135deg,var(--emerald),var(--emerald-d));color:#fff;border:none;border-radius:8px;font-family:'Cairo';font-size:11px;font-weight:700;cursor:pointer}
+        
+        /* إعلانات */
+        .ads-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-bottom:30px}
+        .ad-card{background:var(--bg3);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:.3s}
+        .ad-card:hover{border-color:var(--gold);transform:translateY(-3px)}
+        .ad-card img{width:100%;height:180px;object-fit:cover}
+        .ad-card-text{padding:20px;text-align:center;font-size:18px;font-weight:700;color:var(--gold);background:linear-gradient(135deg,rgba(245,158,11,.1),rgba(217,119,6,.05));min-height:100px;display:flex;align-items:center;justify-content:center}
+        .ad-card-content{padding:14px}
+        .ad-card-content h3{font-size:15px;font-weight:700;margin-bottom:6px}
+        .ad-card-content p{font-size:12px;color:var(--txt2)}
+
         .modal-ov{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);backdrop-filter:blur(6px);z-index:2000;display:none;align-items:center;justify-content:center;padding:20px}
         .modal-ov.active{display:flex}
         .modal{background:var(--bg2);border:1px solid var(--border);border-radius:18px;width:100%;max-width:480px;padding:32px 24px;position:relative;animation:mIn .3s ease;max-height:90vh;overflow-y:auto}
@@ -158,16 +170,17 @@
         .pm-info h4{font-size:14px;font-weight:700;margin-bottom:4px}
         .pm-info p{font-size:11px;color:var(--txt2)}
         .admin-chat-item{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:12px;cursor:pointer;transition:.2s;display:flex;align-items:center;gap:12px;margin-bottom:8px}
-        .admin-chat-item:hover,.admin-chat-item.active{border-color:var(--emerald)}
+        .admin-chat-item:hover{border-color:var(--emerald)}
         .admin-chat-item .av{width:36px;height:36px;background:rgba(16,185,129,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--emerald);flex-shrink:0}
         .support-fab{position:fixed;bottom:24px;left:24px;z-index:800;width:56px;height:56px;background:linear-gradient(135deg,var(--emerald),var(--emerald-d));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;color:#fff;cursor:pointer;box-shadow:0 4px 20px var(--emerald-g)}
         footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid var(--border);padding:32px 20px 16px;margin-top:40px}
         .foot-grid{max-width:1250px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px;margin-bottom:24px}
         .foot-col h4{font-size:14px;font-weight:700;margin-bottom:12px;color:var(--emerald)}
-        .foot-col a{display:block;color:var(--txt2);font-size:12px;padding:3px 0}
+        .foot-col a{display:block;color:var(--txt2);font-size:12px;padding:3px 0;display:flex;align-items:center;gap:8px}
+        .foot-col a:hover{color:var(--emerald)}
         .foot-btm{max-width:1250px;margin:0 auto;text-align:center;padding-top:16px;border-top:1px solid var(--border);font-size:11px;color:var(--txt3)}
         .file-label{padding:10px 14px;background:var(--bg3);border:1px solid var(--border);border-radius:8px;cursor:pointer;color:var(--txt2);font-size:14px}
-        @media(max-width:768px){.admin-side{width:100%;position:relative;height:auto;border-left:none;border-bottom:1px solid var(--border)}.admin-main{margin-right:0}.admin-layout{flex-direction:column}.pgrid{grid-template-columns:repeat(auto-fill,minmax(170px,1fr))}}
+        @media(max-width:768px){.admin-side{width:100%;position:relative;height:auto;border-left:none;border-bottom:1px solid var(--border)}.admin-main{margin-right:0}.admin-layout{flex-direction:column}.pgrid{grid-template-columns:repeat(auto-fill,minmax(170px,1fr))}.ads-grid{grid-template-columns:1fr}}
     </style>
 </head>
 <body>
@@ -185,17 +198,30 @@
         <h1>شحن <span class="gr">فوري</span> بأسعار تنافسية</h1>
         <p>جميع الألعاب والبرامج بالليرة السورية. توصيل لحظي مضمون على مدار الساعة.</p>
         <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><button class="btn btn-p btn-lg" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})"><i class="fas fa-gamepad"></i> تصفح المنتجات</button><button class="btn btn-g btn-lg" onclick="handleUserEntry()"><i class="fas fa-user-circle"></i> حسابي</button></div>
-        <div class="hero-stats"><div class="hero-stat"><div class="num" id="statOrders">0</div><div class="lab">طلب مكتمل</div></div><div class="hero-stat"><div class="num" id="statProducts">0</div><div class="lab">منتج متوفر</div></div><div class="hero-stat"><div class="num" id="statUsers">0</div><div class="lab">مستخدم نشط</div></div></div>
+        <div class="hero-stats" id="heroStats">
+            <div class="hero-stat" id="statOrdersWrap"><div class="num" id="statOrders">0</div><div class="lab">طلب مكتمل</div></div>
+            <div class="hero-stat" id="statProductsWrap"><div class="num" id="statProducts">0</div><div class="lab">منتج متوفر</div></div>
+            <div class="hero-stat" id="statUsersWrap"><div class="num" id="statUsers">0</div><div class="lab">مستخدم نشط</div></div>
+        </div>
+    </section>
+
+    <!-- قسم الإعلانات -->
+    <section class="sec" id="adsSection" style="display:none;padding-top:0">
+        <div class="ads-grid" id="adsGrid"></div>
     </section>
 
     <section class="sec" id="products">
         <div class="sec-hd"><h2>المنتجات</h2><p>اختر اللعبة أو البرنامج واشحن فوراً</p></div>
-        <div class="search"><i class="fas fa-search"></i><input type="text" placeholder="ابحث عن لعبة أو برنامج..." id="searchIn" oninput="filterProducts()"></div>
+        <div class="search"><i class="fas fa-search"></i><input type="text" placeholder="ابحث عن لعبة أو برنامج..." id="searchIn" oninput="handleSearchInput()"></div>
         <div class="cats" id="catsWrap"></div>
         <div class="pgrid" id="pgrid"></div>
     </section>
 
-    <footer><div class="foot-grid"><div class="foot-col"><div class="logo" style="margin-bottom:12px"><div class="logo-ic"><i class="fas fa-bolt"></i></div><span class="logo-tx">شحن_NOW</span></div><p style="font-size:12px;color:var(--txt2)">منصة شحن الألعاب بالليرة السورية.</p></div><div class="foot-col"><h4>روابط</h4><a href="#products">المنتجات</a></div></div><div class="foot-btm">&copy; 2025 شحن_NOW</div></footer>
+    <footer><div class="foot-grid">
+        <div class="foot-col"><div class="logo" style="margin-bottom:12px"><div class="logo-ic"><i class="fas fa-bolt"></i></div><span class="logo-tx">شحن_NOW</span></div><p style="font-size:12px;color:var(--txt2)">منصة شحن الألعاب بالليرة السورية.</p></div>
+        <div class="foot-col"><h4>روابط</h4><a href="#products"><i class="fas fa-gamepad"></i> المنتجات</a><a href="#" onclick="showMyOrders()"><i class="fas fa-receipt"></i> طلباتي</a></div>
+        <div class="foot-col" id="footerContact"><h4>تواصل معنا</h4><a href="#" id="footerWhatsapp" style="display:none"><i class="fab fa-whatsapp" style="color:#25D366"></i> <span id="footerWhatsappText"></span></a><a href="#" id="footerTelegram" style="display:none"><i class="fab fa-telegram" style="color:#0088cc"></i> <span id="footerTelegramText"></span></a><a href="tel:" id="footerPhone" style="display:none"><i class="fas fa-phone" style="color:var(--emerald)"></i> <span id="footerPhoneText"></span></a></div>
+    </div><div class="foot-btm">&copy; 2025 شحن_NOW</div></footer>
     <div class="support-fab" onclick="showSupportChat()"><i class="fas fa-headset"></i></div>
 </div>
 
@@ -211,28 +237,49 @@
 
 <div class="modal-ov" id="supportModal"><div class="modal" style="max-width:440px;padding:0"><div style="padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between"><h2 style="font-size:16px;margin:0"><i class="fas fa-headset" style="color:var(--emerald)"></i> الدعم</h2><button class="modal-x" style="position:static" onclick="closeModal('supportModal')"><i class="fas fa-times"></i></button></div><div class="chat-box" style="border:none;border-radius:0;height:350px"><div class="chat-msgs" id="supportMsgs"></div><div class="chat-input"><input type="text" id="supportIn" placeholder="اكتب رسالتك..." onkeydown="if(event.key==='Enter')sendSupportMsg()"><button onclick="sendSupportMsg()"><i class="fas fa-paper-plane"></i></button></div></div></div></div>
 
-<div class="modal-ov" id="secretModal"><div class="modal" style="max-width:380px;border:2px solid var(--emerald);box-shadow:0 0 40px var(--emerald-g)"><div style="width:60px;height:60px;background:rgba(16,185,129,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:24px;color:var(--emerald)"><i class="fas fa-lock"></i></div><h2>لوحة التحكم</h2><p class="mdesc">أدخل كلمة المرور السرية</p><div class="fg"><input type="password" id="adminPassIn" placeholder="••••••••" style="text-align:center;letter-spacing:3px" onkeydown="if(event.key==='Enter')verifyAdmin()"></div><button class="btn btn-p btn-lg" style="width:100%;justify-content:center" onclick="verifyAdmin()"><i class="fas fa-unlock"></i> دخول</button></div></div>
-
+<!-- لوحة التحكم -->
 <div class="admin" id="adminPanel"><div class="admin-layout">
     <aside class="admin-side">
         <div class="logo" style="padding:0 16px;margin-bottom:28px"><div class="logo-ic"><i class="fas fa-cog"></i></div><span class="logo-tx">لوحة التحكم</span></div>
-        <div class="nav-sec"><div class="nav-sec-t">الرئيسية</div><div class="anav active" data-tab="dashboard" onclick="switchTab(this)"><i class="fas fa-chart-line"></i> المعلومات</div><div class="anav" data-tab="orders-mgmt" onclick="switchTab(this)"><i class="fas fa-shopping-cart"></i> الطلبات</div><div class="anav" data-tab="products-mgmt" onclick="switchTab(this)"><i class="fas fa-boxes-stacked"></i> المنتجات</div></div>
-        <div class="nav-sec"><div class="nav-sec-t">الإعدادات</div><div class="anav" data-tab="payment-methods" onclick="switchTab(this)"><i class="fas fa-credit-card"></i> طرق الشحن</div><div class="anav" data-tab="profit" onclick="switchTab(this)"><i class="fas fa-percent"></i> نسبة الربح</div><div class="anav" data-tab="support-mgmt" onclick="switchTab(this)"><i class="fas fa-comments"></i> المحادثات</div><div class="anav" data-tab="setup" onclick="switchTab(this)"><i class="fas fa-database"></i> تهيئة البيانات</div></div>
+        <div class="nav-sec">
+            <div class="nav-sec-t">الرئيسية</div>
+            <div class="anav active" data-tab="dashboard" onclick="switchTab(this)"><i class="fas fa-chart-line"></i> المعلومات</div>
+            <div class="anav" data-tab="orders-mgmt" onclick="switchTab(this)"><i class="fas fa-shopping-cart"></i> الطلبات</div>
+            <div class="anav" data-tab="products-mgmt" onclick="switchTab(this)"><i class="fas fa-boxes-stacked"></i> المنتجات</div>
+        </div>
+        <div class="nav-sec">
+            <div class="nav-sec-t">الإعدادات</div>
+            <div class="anav" data-tab="payment-methods" onclick="switchTab(this)"><i class="fas fa-credit-card"></i> طرق الشحن</div>
+            <div class="anav" data-tab="profit" onclick="switchTab(this)"><i class="fas fa-percent"></i> نسبة الربح</div>
+            <div class="anav" data-tab="ads-mgmt" onclick="switchTab(this)"><i class="fas fa-bullhorn"></i> الإعلانات</div>
+            <div class="anav" data-tab="contact-mgmt" onclick="switchTab(this)"><i class="fas fa-address-book"></i> أرقام التواصل</div>
+            <div class="anav" data-tab="support-mgmt" onclick="switchTab(this)"><i class="fas fa-comments"></i> المحادثات</div>
+            <div class="anav" data-tab="setup" onclick="switchTab(this)"><i class="fas fa-database"></i> تهيئة البيانات</div>
+        </div>
         <div class="nav-sec"><div class="anav" onclick="goBackToSite()"><i class="fas fa-arrow-right"></i> العودة للموقع</div><div class="anav" style="color:var(--danger)" onclick="logoutAdmin()"><i class="fas fa-sign-out-alt"></i> خروج</div></div>
     </aside>
     <main class="admin-main">
         <div class="atab active" id="tab-dashboard"><div class="admin-top"><h1>لوحة المعلومات</h1></div><div class="stat-grid"><div class="stcard em"><div class="st-ic"><i class="fas fa-coins"></i></div><div class="st-val" id="adminSales">0 ل.س</div><div class="st-lab">المبيعات</div></div><div class="stcard gl"><div class="st-ic"><i class="fas fa-check-circle"></i></div><div class="st-val" id="adminDone">0</div><div class="st-lab">مكتملة</div></div><div class="stcard bl"><div class="st-ic"><i class="fas fa-users"></i></div><div class="st-val" id="adminUsers">0</div><div class="st-lab">مستخدمين</div></div><div class="stcard rd"><div class="st-ic"><i class="fas fa-clock"></i></div><div class="st-val" id="adminPending">0</div><div class="st-lab">قيد الانتظار</div></div></div><div class="tbl-c"><div class="tbl-hd"><h3>آخر الطلبات</h3></div><table><thead><tr><th>#</th><th>المستخدم</th><th>المنتج</th><th>المبلغ</th><th>الحالة</th><th>إجراء</th></tr></thead><tbody id="adminRecentOrders"></tbody></table></div></div>
+        
         <div class="atab" id="tab-orders-mgmt"><div class="admin-top"><h1>إدارة الطلبات</h1></div><div class="tbl-c"><table><thead><tr><th>رقم</th><th>المستخدم</th><th>المنتج</th><th>المبلغ</th><th>الحالة</th><th>إجراء</th></tr></thead><tbody id="adminAllOrders"></tbody></table></div></div>
+        
         <div class="atab" id="tab-products-mgmt"><div class="admin-top"><h1>إدارة المنتجات</h1><button class="btn btn-p btn-sm" onclick="toggleAddProduct()"><i class="fas fa-plus"></i> إضافة</button></div><div id="addProductForm" style="display:none;margin-bottom:20px"><div style="background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:20px"><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><div class="fg"><label>اسم المنتج</label><input type="text" id="npName"></div><div class="fg"><label>الفئة</label><select id="npCat"><option value="pubg">PUBG</option><option value="freefire">Free Fire</option><option value="roblox">Roblox</option><option value="fortnite">Fortnite</option><option value="clash">Clash</option><option value="valorant">Valorant</option><option value="netflix">Netflix</option><option value="spotify">Spotify</option><option value="cards">بطاقات</option><option value="subscriptions">اشتراكات</option></select></div><div class="fg"><label>سعر التكلفة (ل.س)</label><input type="number" id="npCost"></div><div class="fg"><label>رابط الصورة</label><input type="url" id="npImg" dir="ltr"></div></div><div class="fg"><label>الوصف</label><input type="text" id="npDesc"></div><div style="display:flex;gap:8px"><button class="btn btn-p" onclick="addProduct()"><i class="fas fa-save"></i> حفظ</button><button class="btn btn-s" onclick="toggleAddProduct()">إلغاء</button></div></div></div><div class="tbl-c"><table><thead><tr><th>المنتج</th><th>التكلفة</th><th>سعر البيع</th><th>إجراء</th></tr></thead><tbody id="adminProducts"></tbody></table></div></div>
+        
         <div class="atab" id="tab-payment-methods"><div class="admin-top"><h1>طرق الشحن</h1><button class="btn btn-p btn-sm" onclick="toggleAddPM()"><i class="fas fa-plus"></i> إضافة</button></div><div id="addPMForm" style="display:none;margin-bottom:20px"><div style="background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:20px"><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><div class="fg"><label>اسم الطريقة</label><input type="text" id="pmName"></div><div class="fg"><label>رقم الحساب</label><input type="text" id="pmAcc" dir="ltr"></div></div><div class="fg"><label>تعليمات</label><input type="text" id="pmNotes"></div><button class="btn btn-p" onclick="addPaymentMethod()"><i class="fas fa-save"></i> حفظ</button><button class="btn btn-s" onclick="toggleAddPM()">إلغاء</button></div></div><div id="pmList"></div></div>
+        
         <div class="atab" id="tab-profit"><div class="admin-top"><h1>نسبة الربح</h1></div><div class="profit-card"><h3>تحديد نسبة الربح</h3><div class="profit-slider"><span style="font-size:12px;color:var(--txt3)">0%</span><input type="range" min="0" max="100" value="20" id="profitSlider" oninput="document.getElementById('profitVal').textContent=this.value+'%'"><span style="font-size:12px;color:var(--txt3)">100%</span></div><div class="profit-val" id="profitVal">20%</div><button class="btn btn-p" style="margin-top:12px" onclick="applyProfit()"><i class="fas fa-check"></i> تطبيق</button></div></div>
+
+        <div class="atab" id="tab-ads-mgmt"><div class="admin-top"><h1>إدارة الإعلانات</h1><button class="btn btn-p btn-sm" onclick="toggleAddAd()"><i class="fas fa-plus"></i> إضافة إعلان</button></div><div id="addAdForm" style="display:none;margin-bottom:20px"><div style="background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:20px"><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><div class="fg"><label>عنوان الإعلان</label><input type="text" id="adTitle" placeholder="مثال: عرض خاص"></div><div class="fg"><label>نوع الإعلان</label><select id="adType"><option value="image">صورة</option><option value="text">نصي</option></select></div><div class="fg"><label>المحتوى (رابط الصورة أو النص)</label><input type="text" id="adContent" placeholder="https://... أو النص" dir="ltr"></div><div class="fg"><label>رابط عند الضغط (اختياري)</label><input type="url" id="adLink" placeholder="https://..." dir="ltr"></div></div><button class="btn btn-p" onclick="addAd()"><i class="fas fa-save"></i> حفظ</button><button class="btn btn-s" onclick="toggleAddAd()">إلغاء</button></div></div><div id="adminAdsList"></div></div>
+
+        <div class="atab" id="tab-contact-mgmt"><div class="admin-top"><h1>أرقام التواصل</h1></div><div style="background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:24px"><div class="fg"><label><i class="fab fa-whatsapp" style="color:#25D366"></i> رقم واتساب (مع رمز الدولة)</label><input type="text" id="ctWhatsapp" placeholder="963999888777" dir="ltr"></div><div class="fg"><label><i class="fab fa-telegram" style="color:#0088cc"></i> معرف تيليجرام</label><input type="text" id="ctTelegram" placeholder="@username" dir="ltr"></div><div class="fg"><label><i class="fas fa-phone" style="color:var(--emerald)"></i> رقم الهاتف</label><input type="text" id="ctPhone" placeholder="0999888777" dir="ltr"></div><button class="btn btn-p btn-lg" style="width:100%;justify-content:center" onclick="saveContact()"><i class="fas fa-save"></i> حفظ أرقام التواصل</button></div></div>
+
         <div class="atab" id="tab-support-mgmt"><div class="admin-top"><h1>المحادثات</h1></div><div style="display:flex;gap:16px;flex-wrap:wrap"><div style="flex:0 0 240px" id="adminChatList"></div><div style="flex:1;min-width:280px"><div class="chat-box" style="height:400px"><div class="chat-msgs" id="adminChatMsgs"><p style="text-align:center;color:var(--txt3);padding:40px">اختر محادثة</p></div><div class="chat-input"><input type="text" id="adminChatIn" placeholder="اكتب ردك..." onkeydown="if(event.key==='Enter')adminSendMsg()"><label class="file-label"><i class="fas fa-image"></i><input type="file" accept="image/*" style="display:none" onchange="adminSendImage(event)"></label><button onclick="adminSendMsg()" style="padding:10px 14px;background:var(--emerald);color:#fff;border:none;border-radius:8px;cursor:pointer"><i class="fas fa-paper-plane"></i></button></div></div></div></div></div>
+        
         <div class="atab" id="tab-setup"><div class="admin-top"><h1>تهيئة البيانات</h1></div><div class="profit-card"><h3>اضغط هذا الزر مرة واحدة فقط عند أول تشغيل</h3><p style="font-size:12px;color:var(--txt2);margin-bottom:16px">سيضيف المنتجات وطرق الدفع الافتراضية لقاعدة البيانات</p><button class="btn btn-g btn-lg" onclick="seedDatabase()"><i class="fas fa-database"></i> تهيئة البيانات الآن</button><div id="seedStatus" style="margin-top:12px"></div></div></div>
     </main>
 </div></div>
 
 <script>
-// ========== بيانات Firebase الخاصة بمشروعك ==========
 const firebaseConfig = {
     apiKey: "AIzaSyAPLowq6DQzi7TjwZYw3zmMfi0AlrUc6DQ",
     authDomain: "ishhan-580ce.firebaseapp.com",
@@ -250,7 +297,7 @@ const auth = firebase.auth();
 let currentUser = null;
 let activeCat = 'all';
 let currentAdminChat = null;
-const ADMIN_PASS = 'admin2025';
+const SECRET_KEYWORD = 'abd2026'; // كلمة الدخول السرية
 
 const catList = [
     {id:'all',name:'الكل',icon:'fas fa-th-large'},{id:'pubg',name:'PUBG',icon:'fas fa-crosshairs'},
@@ -261,7 +308,6 @@ const catList = [
     {id:'subscriptions',name:'اشتراكات',icon:'fas fa-crown'},
 ];
 
-// ========== المصادقة التلقائية ==========
 auth.onAuthStateChanged(user => {
     if (user) { currentUser = user; checkUserAccount(user); updateLoginBtn(); }
     else { auth.signInAnonymously().catch(e => console.error(e)); }
@@ -275,7 +321,7 @@ async function checkUserAccount(user) {
             await db.collection('users').doc(user.uid).set({ accId: accId, createdAt: firebase.firestore.FieldValue.serverTimestamp() });
             showWarning(accId);
         }
-    } catch(e) { console.log('Waiting for Firestore setup...'); }
+    } catch(e) { console.log('Waiting for Firestore...'); }
 }
 
 function showWarning(accId) {
@@ -285,15 +331,17 @@ function showWarning(accId) {
     openModal('warnModal');
 }
 
-// ========== البيانات الحية ==========
 let productsCache = [];
 let settingsCache = { profitMargin: 20 };
+let contactCache = {};
 
 function loadData() {
     db.collection('settings').doc('general').onSnapshot(doc => { if(doc.exists) settingsCache = doc.data(); });
-    db.collection('products').onSnapshot(snap => { productsCache = []; snap.forEach(doc => productsCache.push({id:doc.id,...doc.data()})); renderProducts(); document.getElementById('statProducts').textContent = productsCache.length; });
-    db.collection('orders').where('status','==','success').onSnapshot(snap => { document.getElementById('statOrders').textContent = snap.size; });
-    db.collection('users').onSnapshot(snap => { document.getElementById('statUsers').textContent = snap.size; });
+    db.collection('products').onSnapshot(snap => { productsCache = []; snap.forEach(doc => productsCache.push({id:doc.id,...doc.data()})); renderProducts(); document.getElementById('statProducts').textContent = productsCache.length; document.getElementById('statProductsWrap').classList.toggle('visible', productsCache.length > 0); });
+    db.collection('orders').where('status','==','success').onSnapshot(snap => { document.getElementById('statOrders').textContent = snap.size; document.getElementById('statOrdersWrap').classList.toggle('visible', snap.size > 0); });
+    db.collection('users').onSnapshot(snap => { document.getElementById('statUsers').textContent = snap.size; document.getElementById('statUsersWrap').classList.toggle('visible', snap.size > 0); });
+    db.collection('ads').onSnapshot(snap => { renderAds(snap); });
+    db.collection('settings').doc('contact').onSnapshot(doc => { if(doc.exists) { contactCache = doc.data(); renderContactFooter(); }});
 }
 loadData();
 
@@ -302,8 +350,23 @@ function formatSYP(a) { return a.toLocaleString('ar-SA') + ' ل.س'; }
 
 function renderCats() { document.getElementById('catsWrap').innerHTML = catList.map(c => `<div class="cat-chip ${c.id===activeCat?'active':''}" onclick="setCat('${c.id}')"><i class="${c.icon}"></i> ${c.name}</div>`).join(''); }
 renderCats();
-
 function setCat(id) { activeCat = id; renderCats(); renderProducts(); }
+
+// ========== البحث السري والمنتجات ==========
+function handleSearchInput() {
+    const q = document.getElementById('searchIn').value.trim();
+    if (q === SECRET_KEYWORD) {
+        document.getElementById('searchIn').value = '';
+        document.getElementById('mainSite').style.display = 'none';
+        document.getElementById('adminPanel').classList.add('active');
+        loadAdminData();
+        toast('success', 'مرحباً', 'تم الدخول إلى لوحة التحكم');
+        return;
+    }
+    filterProducts();
+}
+
+function filterProducts() { renderProducts(document.getElementById('searchIn').value.trim()); }
 
 function renderProducts(filter='') {
     let items = productsCache;
@@ -318,7 +381,26 @@ function renderProducts(filter='') {
     }).join('');
 }
 
-function filterProducts() { renderProducts(document.getElementById('searchIn').value.trim()); }
+// ========== الإعلانات ==========
+function renderAds(snap) {
+    if (snap.empty) { document.getElementById('adsSection').style.display = 'none'; return; }
+    document.getElementById('adsSection').style.display = 'block';
+    document.getElementById('adsGrid').innerHTML = snap.docs.map(d => {
+        const ad = d.data();
+        const content = ad.type === 'image' ? `<img src="${ad.content}" alt="${ad.title}">` : `<div class="ad-card-text">${ad.content}</div>`;
+        const linkStart = ad.link ? `<a href="${ad.link}" target="_blank" style="text-decoration:none;color:inherit">` : '';
+        const linkEnd = ad.link ? '</a>' : '';
+        return `<div class="ad-card">${linkStart}${content}<div class="ad-card-content"><h3>${ad.title}</h3></div>${linkEnd}</div>`;
+    }).join('');
+}
+
+// ========== أرقام التواصل ==========
+function renderContactFooter() {
+    const c = contactCache;
+    if(c.whatsapp) { document.getElementById('footerWhatsapp').style.display='flex'; document.getElementById('footerWhatsapp').href='https://wa.me/'+c.whatsapp; document.getElementById('footerWhatsappText').textContent=c.whatsapp; }
+    if(c.telegram) { document.getElementById('footerTelegram').style.display='flex'; document.getElementById('footerTelegram').href='https://t.me/'+c.telegram.replace('@',''); document.getElementById('footerTelegramText').textContent=c.telegram; }
+    if(c.phone) { document.getElementById('footerPhone').style.display='flex'; document.getElementById('footerPhone').href='tel:'+c.phone; document.getElementById('footerPhoneText').textContent=c.phone; }
+}
 
 // ========== الشراء ==========
 async function openPurchase(pid) {
@@ -327,16 +409,10 @@ async function openPurchase(pid) {
     if (!p) return;
     const sp = calcSellPrice(p.cost);
     let pmOpts = '';
-    try {
-        const pmSnap = await db.collection('paymentMethods').get();
-        pmOpts = pmSnap.docs.map(d => `<option value="${d.id}">${d.data().name}</option>`).join('');
-    } catch(e) { pmOpts = '<option>لا توجد طرق دفع</option>'; }
-
+    try { const pmSnap = await db.collection('paymentMethods').get(); pmOpts = pmSnap.docs.map(d => `<option value="${d.id}">${d.data().name}</option>`).join(''); } catch(e) { pmOpts = '<option>لا توجد طرق دفع</option>'; }
     document.getElementById('purchaseContent').innerHTML = `
         <h2>${p.name}</h2>
-        <div style="background:var(--bg3);border-radius:12px;padding:16px;margin:16px 0">
-            <div style="display:flex;justify-content:space-between"><span style="color:var(--txt2)">السعر</span><strong style="color:var(--emerald);font-size:18px">${formatSYP(sp)}</strong></div>
-        </div>
+        <div style="background:var(--bg3);border-radius:12px;padding:16px;margin:16px 0"><div style="display:flex;justify-content:space-between"><span style="color:var(--txt2)">السعر</span><strong style="color:var(--emerald);font-size:18px">${formatSYP(sp)}</strong></div></div>
         <div class="fg"><label>معرف اللاعب / الحساب</label><input type="text" id="buyPlayerId" placeholder="أدخل المعرف"></div>
         <div class="fg"><label>طريقة الدفع</label><select id="buyPayMethod" onchange="showPayMethodInfo()">${pmOpts}</select></div>
         <div id="payMethodInfo"></div>
@@ -347,11 +423,9 @@ async function openPurchase(pid) {
 }
 
 async function showPayMethodInfo() {
-    const pmId = document.getElementById('buyPayMethod').value;
-    if(!pmId) return;
+    const pmId = document.getElementById('buyPayMethod').value; if(!pmId) return;
     try {
-        const doc = await db.collection('paymentMethods').doc(pmId).get();
-        const pm = doc.data();
+        const doc = await db.collection('paymentMethods').doc(pmId).get(); const pm = doc.data();
         const wrap = document.getElementById('payMethodInfo');
         wrap.innerHTML = `<div style="background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:12px"><div style="font-size:13px;font-weight:700;margin-bottom:6px"><i class="fas fa-credit-card" style="color:var(--emerald)"></i> ${pm.name}</div><div style="font-size:12px;color:var(--txt2)">العنوان: <strong style="color:var(--emerald);direction:ltr;display:inline">${pm.acc}</strong></div>${pm.notes?`<div style="font-size:11px;color:var(--gold);margin-top:4px"><i class="fas fa-info-circle"></i> ${pm.notes}</div>`:''}<div class="qr-wrap" id="payQr" style="margin-top:8px"></div></div>`;
         setTimeout(() => { const qr=document.getElementById('payQr'); if(qr){qr.innerHTML=''; new QRCode(qr,{text:pm.acc,width:100,height:100}); }},50);
@@ -364,8 +438,7 @@ async function confirmPurchase(pid, sellPrice) {
     const p = productsCache.find(x => x.id === pid);
     try {
         await db.collection('orders').add({ userId: currentUser.uid, productName: p.name, playerRef: playerId, amount: sellPrice, status: 'pending', payMethodId: document.getElementById('buyPayMethod').value, notes: document.getElementById('buyNotes')?.value?.trim()||'', createdAt: firebase.firestore.FieldValue.serverTimestamp() });
-        closeModal('purchaseModal');
-        toast('success','تم إنشاء الطلب','طلبك قيد المراجعة');
+        closeModal('purchaseModal'); toast('success','تم إنشاء الطلب','طلبك قيد المراجعة');
     } catch(e) { toast('error','خطأ','حدث خطأ، تأكد من تهيئة قاعدة البيانات'); }
 }
 
@@ -374,96 +447,50 @@ function handleUserEntry() { if(currentUser) showMyAccount(); else toast('info',
 function updateLoginBtn() { const b=document.getElementById('loginBtn'); b.innerHTML=currentUser?'<i class="fas fa-user-check"></i> حسابي':'<i class="fas fa-sign-in-alt"></i> الدخول'; b.onclick=handleUserEntry; }
 
 async function showMyAccount() {
-    try {
-        const doc = await db.collection('users').doc(currentUser.uid).get();
-        if(!doc.exists) { toast('error','خطأ','حسابك غير موجود بعد'); return; }
-        const accId = doc.data().accId;
+    try { const doc = await db.collection('users').doc(currentUser.uid).get(); if(!doc.exists) return; const accId = doc.data().accId;
         document.getElementById('accountBox').innerHTML = `<div style="font-size:12px;color:var(--txt3)">رقم الحساب</div><div class="acc-id" style="font-size:22px;font-weight:900;color:var(--emerald);letter-spacing:3px;margin:6px 0">${accId}</div><div class="qr-wrap" id="accountQr"></div>`;
-        setTimeout(() => { const qr=document.getElementById('accountQr'); if(qr){qr.innerHTML=''; new QRCode(qr,{text:accId,width:120,height:120}); }},50);
-        openModal('accountModal');
-    } catch(e) { toast('error','خطأ','تأكد من تهيئة قاعدة البيانات أولاً'); }
+        setTimeout(() => { const qr=document.getElementById('accountQr'); if(qr){qr.innerHTML=''; new QRCode(qr,{text:accId,width:120,height:120}); }},50); openModal('accountModal');
+    } catch(e) { toast('error','خطأ','تأكد من تهيئة قاعدة البيانات'); }
 }
-
 function logoutUser() { auth.signOut(); closeModal('accountModal'); }
 
 async function showMyOrders() {
     if (!currentUser) { handleUserEntry(); return; }
-    try {
-        const snap = await db.collection('orders').where('userId','==',currentUser.uid).orderBy('createdAt','desc').get();
-        const list = document.getElementById('ordersList');
+    try { const snap = await db.collection('orders').where('userId','==',currentUser.uid).orderBy('createdAt','desc').get(); const list = document.getElementById('ordersList');
         if (snap.empty) { list.innerHTML = '<div style="text-align:center;padding:30px;color:var(--txt3)">لا توجد طلبات</div>'; }
-        else {
-            list.innerHTML = snap.docs.map(d => { const o=d.data(); const st=o.status==='success'?'مكتمل':o.status==='pending'?'قيد الانتظار':'فاشل'; return `<div class="order-card" onclick="showOrderDetail('${d.id}')"><div class="order-top"><span class="order-id">${d.id.substring(0,8)}</span><span class="status-b ${o.status}">${st}</span></div><div style="font-size:12px;color:var(--txt2);line-height:2"><div><strong>المنتج:</strong> ${o.productName}</div><div><strong>المبلغ:</strong> ${formatSYP(o.amount)}</div></div></div>`; }).join('');
-        }
+        else { list.innerHTML = snap.docs.map(d => { const o=d.data(); const st=o.status==='success'?'مكتمل':o.status==='pending'?'قيد الانتظار':'فاشل'; return `<div class="order-card" onclick="showOrderDetail('${d.id}')"><div class="order-top"><span class="order-id">${d.id.substring(0,8)}</span><span class="status-b ${o.status}">${st}</span></div><div style="font-size:12px;color:var(--txt2);line-height:2"><div><strong>المنتج:</strong> ${o.productName}</div><div><strong>المبلغ:</strong> ${formatSYP(o.amount)}</div></div></div>`; }).join(''); }
         openModal('ordersModal');
     } catch(e) { toast('error','خطأ','تأكد من تهيئة قاعدة البيانات'); }
 }
 
 async function showOrderDetail(oid) {
-    try {
-        const doc = await db.collection('orders').doc(oid).get();
-        const o = doc.data();
-        const st = o.status==='success'?'مكتمل':o.status==='pending'?'قيد الانتظار':'فاشل';
-        document.getElementById('orderDetailContent').innerHTML = `
-            <h2 style="margin-bottom:16px">تفاصيل الطلب</h2>
-            <div style="background:var(--bg3);border-radius:12px;padding:16px;margin-bottom:16px">
-                <div style="display:flex;justify-content:space-between;margin-bottom:8px"><span style="color:var(--txt2)">رقم الطلب</span><strong style="color:var(--emerald)">${oid.substring(0,8)}</strong></div>
-                <div style="display:flex;justify-content:space-between;margin-bottom:8px"><span style="color:var(--txt2)">الحالة</span><span class="status-b ${o.status}">${st}</span></div>
-                <div style="display:flex;justify-content:space-between;margin-bottom:8px"><span style="color:var(--txt2)">المنتج</span><strong>${o.productName}</strong></div>
-                <div style="display:flex;justify-content:space-between;margin-bottom:8px"><span style="color:var(--txt2)">معرف اللاعب</span><strong style="direction:ltr">${o.playerRef}</strong></div>
-                <div style="display:flex;justify-content:space-between"><span style="color:var(--txt2)">المبلغ</span><strong style="color:var(--emerald)">${formatSYP(o.amount)}</strong></div>
-            </div>
-            <div style="text-align:center"><div style="font-size:12px;color:var(--txt3);margin-bottom:8px">رمز QR للطلب</div><div class="qr-wrap" id="orderQr"></div></div>`;
-        closeModal('ordersModal');
-        openModal('orderDetailModal');
+    try { const doc = await db.collection('orders').doc(oid).get(); const o = doc.data(); const st = o.status==='success'?'مكتمل':o.status==='pending'?'قيد الانتظار':'فاشل';
+        document.getElementById('orderDetailContent').innerHTML = `<h2 style="margin-bottom:16px">تفاصيل الطلب</h2><div style="background:var(--bg3);border-radius:12px;padding:16px;margin-bottom:16px"><div style="display:flex;justify-content:space-between;margin-bottom:8px"><span style="color:var(--txt2)">رقم الطلب</span><strong style="color:var(--emerald)">${oid.substring(0,8)}</strong></div><div style="display:flex;justify-content:space-between;margin-bottom:8px"><span style="color:var(--txt2)">الحالة</span><span class="status-b ${o.status}">${st}</span></div><div style="display:flex;justify-content:space-between;margin-bottom:8px"><span style="color:var(--txt2)">المنتج</span><strong>${o.productName}</strong></div><div style="display:flex;justify-content:space-between;margin-bottom:8px"><span style="color:var(--txt2)">معرف اللاعب</span><strong style="direction:ltr">${o.playerRef}</strong></div><div style="display:flex;justify-content:space-between"><span style="color:var(--txt2)">المبلغ</span><strong style="color:var(--emerald)">${formatSYP(o.amount)}</strong></div></div><div style="text-align:center"><div style="font-size:12px;color:var(--txt3);margin-bottom:8px">رمز QR للطلب</div><div class="qr-wrap" id="orderQr"></div></div>`;
+        closeModal('ordersModal'); openModal('orderDetailModal');
         setTimeout(() => { const qr=document.getElementById('orderQr'); if(qr){qr.innerHTML=''; new QRCode(qr,{text:oid,width:120,height:120}); }},100);
     } catch(e) {}
 }
 
 // ========== المحادثات ==========
 function showSupportChat() { if(!currentUser){handleUserEntry();return;} renderSupportChat(); openModal('supportModal'); }
-
 async function renderSupportChat() {
-    try {
-        const doc = await db.collection('supportMessages').doc(currentUser.uid).get();
-        const wrap = document.getElementById('supportMsgs');
+    try { const doc = await db.collection('supportMessages').doc(currentUser.uid).get(); const wrap = document.getElementById('supportMsgs');
         if (!doc.exists || !doc.data().messages) { wrap.innerHTML = '<p style="text-align:center;color:var(--txt3);padding:30px">ابدأ المحادثة مع الدعم</p>'; return; }
         wrap.innerHTML = doc.data().messages.map(m => `<div class="chat-msg ${m.from==='user'?'user':'admin'}"><div class="sender">${m.from==='user'?'أنت':'الدعم'}</div>${m.text?`<div>${m.text}</div>`:''}${m.image?`<img src="${m.image}" style="max-width:180px">`:''}<div class="time">${m.time?new Date(m.time).toLocaleTimeString('ar-SA'):''}</div></div>`).join('');
         wrap.scrollTop = wrap.scrollHeight;
     } catch(e) {}
 }
-
 async function sendSupportMsg() {
-    const input = document.getElementById('supportIn');
-    const text = input.value.trim();
-    if (!text) return;
-    try {
-        const ref = db.collection('supportMessages').doc(currentUser.uid);
-        const doc = await ref.get();
-        const msgs = doc.exists && doc.data().messages ? doc.data().messages : [];
-        msgs.push({ from:'user', text, time: Date.now() });
-        await ref.set({ messages: msgs }, { merge: true });
-        input.value = '';
-        renderSupportChat();
+    const input = document.getElementById('supportIn'); const text = input.value.trim(); if (!text) return;
+    try { const ref = db.collection('supportMessages').doc(currentUser.uid); const doc = await ref.get(); const msgs = doc.exists && doc.data().messages ? doc.data().messages : [];
+        msgs.push({ from:'user', text, time: Date.now() }); await ref.set({ messages: msgs }, { merge: true }); input.value = ''; renderSupportChat();
     } catch(e) { toast('error','خطأ','تأكد من تهيئة قاعدة البيانات'); }
 }
 
 // ========== لوحة التحكم ==========
-document.addEventListener('keydown', e => { if(e.ctrlKey&&e.shiftKey&&e.key==='A'){e.preventDefault();openModal('secretModal');} });
-
-function verifyAdmin() {
-    if (document.getElementById('adminPassIn').value === ADMIN_PASS) {
-        closeModal('secretModal');
-        document.getElementById('mainSite').style.display = 'none';
-        document.getElementById('adminPanel').classList.add('active');
-        loadAdminData();
-        toast('success','مرحباً','تم الدخول إلى لوحة التحكم');
-    } else toast('error','خطأ','كلمة المرور غير صحيحة');
-}
-
 function goBackToSite() { document.getElementById('adminPanel').classList.remove('active'); document.getElementById('mainSite').style.display='block'; }
 function logoutAdmin() { goBackToSite(); }
-function switchTab(el) { document.querySelectorAll('.anav').forEach(a=>a.classList.remove('active')); el.classList.add('active'); document.querySelectorAll('.atab').forEach(t=>t.classList.remove('active')); document.getElementById('tab-'+el.dataset.tab).classList.add('active'); if(['dashboard','orders-mgmt','products-mgmt','payment-methods','support-mgmt'].includes(el.dataset.tab)) loadAdminData(); }
+function switchTab(el) { document.querySelectorAll('.anav').forEach(a=>a.classList.remove('active')); el.classList.add('active'); document.querySelectorAll('.atab').forEach(t=>t.classList.remove('active')); document.getElementById('tab-'+el.dataset.tab).classList.add('active'); loadAdminData(); }
 
 function loadAdminData() {
     db.collection('orders').where('status','==','success').get().then(s => { document.getElementById('adminSales').textContent=formatSYP(s.docs.reduce((a,d)=>a+d.data().amount,0)); document.getElementById('adminDone').textContent=s.size; }).catch(()=>{});
@@ -476,11 +503,21 @@ function loadAdminData() {
         document.getElementById('adminAllOrders').innerHTML = html || '<tr><td colspan="6" style="text-align:center;color:var(--txt3)">لا توجد طلبات</td></tr>';
     }).catch(()=>{});
 
-    document.getElementById('adminProducts').innerHTML = productsCache.map(p => { const s=calcSellPrice(p.cost); return `<tr><td>${p.name}</td><td>${formatSYP(p.cost)}</td><td style="color:var(--emerald)">${formatSYP(s)}</td><td><button class="btn btn-sm btn-d" onclick="deleteProduct('${p.id}')"><i class="fas fa-trash"></i></button></td></tr>`; }).join('') || '<tr><td colspan="4" style="text-align:center;color:var(--txt3)">لا توجد منتجات - اضغط تهيئة البيانات</td></tr>';
+    document.getElementById('adminProducts').innerHTML = productsCache.map(p => { const s=calcSellPrice(p.cost); return `<tr><td>${p.name}</td><td>${formatSYP(p.cost)}</td><td style="color:var(--emerald)">${formatSYP(s)}</td><td><button class="btn btn-sm btn-d" onclick="deleteProduct('${p.id}')"><i class="fas fa-trash"></i></button></td></tr>`; }).join('') || '<tr><td colspan="4" style="text-align:center;color:var(--txt3)">لا توجد منتجات</td></tr>';
 
     db.collection('paymentMethods').get().then(snap => {
-        document.getElementById('pmList').innerHTML = snap.empty ? '<div style="text-align:center;padding:20px;color:var(--txt3)">لا توجد طرق شحن - اضغط تهيئة البيانات</div>' : snap.docs.map(d => { const pm=d.data(); return `<div class="pm-card"><div class="pm-qr" id="pmQr${d.id}"></div><div class="pm-info" style="flex:1"><h4>${pm.name}</h4><p>الحساب: <span style="color:var(--emerald);direction:ltr;display:inline">${pm.acc}</span></p>${pm.notes?`<p>${pm.notes}</p>`:''}</div><button class="btn btn-sm btn-d" onclick="deletePM('${d.id}')"><i class="fas fa-trash"></i></button></div>`; }).join('');
+        document.getElementById('pmList').innerHTML = snap.empty ? '<div style="text-align:center;padding:20px;color:var(--txt3)">لا توجد طرق شحن</div>' : snap.docs.map(d => { const pm=d.data(); return `<div class="pm-card"><div class="pm-qr" id="pmQr${d.id}"></div><div class="pm-info" style="flex:1"><h4>${pm.name}</h4><p>الحساب: <span style="color:var(--emerald);direction:ltr;display:inline">${pm.acc}</span></p>${pm.notes?`<p>${pm.notes}</p>`:''}</div><button class="btn btn-sm btn-d" onclick="deletePM('${d.id}')"><i class="fas fa-trash"></i></button></div>`; }).join('');
         snap.docs.forEach(d => { setTimeout(()=>{ const el=document.getElementById('pmQr'+d.id); if(el&&!el.hasChildNodes()) new QRCode(el,{text:d.data().acc,width:80,height:80}); },100); });
+    }).catch(()=>{});
+
+    // تحميل بيانات التواصل في الإعدادات
+    db.collection('settings').doc('contact').get().then(doc => {
+        if(doc.exists) { const c = doc.data(); document.getElementById('ctWhatsapp').value = c.whatsapp||''; document.getElementById('ctTelegram').value = c.telegram||''; document.getElementById('ctPhone').value = c.phone||''; }
+    });
+
+    // تحميل الإعلانات
+    db.collection('ads').get().then(snap => {
+        document.getElementById('adminAdsList').innerHTML = snap.empty ? '<div style="text-align:center;padding:20px;color:var(--txt3)">لا توجد إعلانات</div>' : snap.docs.map(d => { const ad=d.data(); return `<div class="pm-card"><div style="flex:1"><h4>${ad.title}</h4><p style="font-size:11px;color:var(--txt2)">النوع: ${ad.type==='image'?'صورة':'نصي'}</p></div><button class="btn btn-sm btn-d" onclick="deleteAd('${d.id}')"><i class="fas fa-trash"></i></button></div>`; }).join('');
     }).catch(()=>{});
 
     db.collection('supportMessages').get().then(snap => {
@@ -488,89 +525,39 @@ function loadAdminData() {
     }).catch(()=>{});
 }
 
-async function adminChangeStatus(oid, current) {
-    const next = current==='pending'?'success':current==='success'?'failed':'pending';
-    await db.collection('orders').doc(oid).update({status:next});
-    loadAdminData();
-    toast('info','تم التحديث','حالة الطلب: '+(next==='success'?'مكتمل':next==='pending'?'قيد الانتظار':'فاشل'));
-}
+async function adminChangeStatus(oid, current) { const next = current==='pending'?'success':current==='success'?'failed':'pending'; await db.collection('orders').doc(oid).update({status:next}); loadAdminData(); toast('info','تم التحديث','حالة الطلب: '+(next==='success'?'مكتمل':next==='pending'?'قيد الانتظار':'فاشل')); }
 
 function toggleAddProduct() { const f=document.getElementById('addProductForm'); f.style.display=f.style.display==='none'?'block':'none'; }
-async function addProduct() {
-    const name=document.getElementById('npName').value.trim(); const cost=parseInt(document.getElementById('npCost').value);
-    if(!name||!cost){toast('error','خطأ','أكمل الحقول');return;}
-    await db.collection('products').add({name, cat:document.getElementById('npCat').value, cost, img:document.getElementById('npImg').value||`https://picsum.photos/seed/${Date.now()}/400/300`, desc:document.getElementById('npDesc').value||name, badge:'new'});
-    toggleAddProduct(); loadAdminData(); toast('success','تم','تم إضافة المنتج');
-}
+async function addProduct() { const name=document.getElementById('npName').value.trim(); const cost=parseInt(document.getElementById('npCost').value); if(!name||!cost){toast('error','خطأ','أكمل الحقول');return;} await db.collection('products').add({name, cat:document.getElementById('npCat').value, cost, img:document.getElementById('npImg').value||`https://picsum.photos/seed/${Date.now()}/400/300`, desc:document.getElementById('npDesc').value||name, badge:'new'}); toggleAddProduct(); loadAdminData(); toast('success','تم','تم إضافة المنتج'); }
 async function deleteProduct(id) { await db.collection('products').doc(id).delete(); loadAdminData(); }
 
 function toggleAddPM() { const f=document.getElementById('addPMForm'); f.style.display=f.style.display==='none'?'block':'none'; }
-async function addPaymentMethod() {
-    const name=document.getElementById('pmName').value.trim(); const acc=document.getElementById('pmAcc').value.trim();
-    if(!name||!acc){toast('error','خطأ','أكمل الحقول');return;}
-    await db.collection('paymentMethods').add({name, acc, notes:document.getElementById('pmNotes').value});
-    toggleAddPM(); loadAdminData(); toast('success','تم','تم إضافة طريقة الشحن');
-}
+async function addPaymentMethod() { const name=document.getElementById('pmName').value.trim(); const acc=document.getElementById('pmAcc').value.trim(); if(!name||!acc){toast('error','خطأ','أكمل الحقول');return;} await db.collection('paymentMethods').add({name, acc, notes:document.getElementById('pmNotes').value}); toggleAddPM(); loadAdminData(); toast('success','تم','تم إضافة طريقة الشحن'); }
 async function deletePM(id) { await db.collection('paymentMethods').doc(id).delete(); loadAdminData(); }
 
-async function applyProfit() {
-    const margin = parseInt(document.getElementById('profitSlider').value);
-    await db.collection('settings').doc('general').set({ profitMargin: margin });
-    settingsCache.profitMargin = margin;
-    renderProducts(); loadAdminData();
-    toast('success','تم','نسبة الربح: '+margin+'%');
-}
+async function applyProfit() { const margin = parseInt(document.getElementById('profitSlider').value); await db.collection('settings').doc('general').set({ profitMargin: margin }); settingsCache.profitMargin = margin; renderProducts(); loadAdminData(); toast('success','تم','نسبة الربح: '+margin+'%'); }
 
-function openAdminChat(uid) {
-    currentAdminChat = uid;
-    db.collection('supportMessages').doc(uid).onSnapshot(doc => {
-        const wrap = document.getElementById('adminChatMsgs');
-        if (!doc.exists || !doc.data().messages) { wrap.innerHTML = '<p style="text-align:center;color:var(--txt3)">لا رسائل</p>'; return; }
-        wrap.innerHTML = doc.data().messages.map(m => `<div class="chat-msg ${m.from==='user'?'user':'admin'}"><div class="sender">${m.from==='user'?'مستخدم':'الدعم'}</div>${m.text?`<div>${m.text}</div>`:''}${m.image?`<img src="${m.image}" style="max-width:200px">`:''}<div class="time">${m.time?new Date(m.time).toLocaleTimeString('ar-SA'):''}</div></div>`).join('');
-        wrap.scrollTop = wrap.scrollHeight;
-    });
-}
+// ========== إدارة الإعلانات ==========
+function toggleAddAd() { const f=document.getElementById('addAdForm'); f.style.display=f.style.display==='none'?'block':'none'; }
+async function addAd() { const title=document.getElementById('adTitle').value.trim(); const type=document.getElementById('adType').value; const content=document.getElementById('adContent').value.trim(); if(!title||!content){toast('error','خطأ','أكمل الحقول');return;} await db.collection('ads').add({title, type, content, link:document.getElementById('adLink').value}); toggleAddAd(); loadAdminData(); toast('success','تم','تم إضافة الإعلان'); }
+async function deleteAd(id) { await db.collection('ads').doc(id).delete(); loadAdminData(); }
 
-async function adminSendMsg() {
-    if(!currentAdminChat) return;
-    const text = document.getElementById('adminChatIn').value.trim();
-    if (!text) return;
-    const ref = db.collection('supportMessages').doc(currentAdminChat);
-    const doc = await ref.get();
-    const msgs = doc.exists && doc.data().messages ? doc.data().messages : [];
-    msgs.push({ from:'admin', text, time: Date.now() });
-    await ref.set({ messages: msgs }, { merge: true });
-    document.getElementById('adminChatIn').value = '';
-}
+// ========== إدارة التواصل ==========
+async function saveContact() { const whatsapp=document.getElementById('ctWhatsapp').value.trim(); const telegram=document.getElementById('ctTelegram').value.trim(); const phone=document.getElementById('ctPhone').value.trim(); await db.collection('settings').doc('contact').set({whatsapp, telegram, phone}); contactCache={whatsapp, telegram, phone}; renderContactFooter(); toast('success','تم','تم حفظ أرقام التواصل'); }
 
-async function adminSendImage(e) {
-    if(!currentAdminChat){toast('error','خطأ','اختر محادثة');e.target.value='';return;}
-    const file=e.target.files[0]; if(!file) return;
-    const reader=new FileReader();
-    reader.onload=async function(ev) {
-        const ref=db.collection('supportMessages').doc(currentAdminChat);
-        const doc=await ref.get();
-        const msgs=doc.exists&&doc.data().messages?doc.data().messages:[];
-        msgs.push({from:'admin',image:ev.target.result,time:Date.now()});
-        await ref.set({messages:msgs},{merge:true});
-    };
-    reader.readAsDataURL(file); e.target.value='';
-}
+// ========== محادثات لوحة التحكم ==========
+function openAdminChat(uid) { currentAdminChat = uid; db.collection('supportMessages').doc(uid).onSnapshot(doc => { const wrap = document.getElementById('adminChatMsgs'); if (!doc.exists || !doc.data().messages) { wrap.innerHTML = '<p style="text-align:center;color:var(--txt3)">لا رسائل</p>'; return; } wrap.innerHTML = doc.data().messages.map(m => `<div class="chat-msg ${m.from==='user'?'user':'admin'}"><div class="sender">${m.from==='user'?'مستخدم':'الدعم'}</div>${m.text?`<div>${m.text}</div>`:''}${m.image?`<img src="${m.image}" style="max-width:200px">`:''}<div class="time">${m.time?new Date(m.time).toLocaleTimeString('ar-SA'):''}</div></div>`).join(''); wrap.scrollTop = wrap.scrollHeight; }); }
+async function adminSendMsg() { if(!currentAdminChat) return; const text = document.getElementById('adminChatIn').value.trim(); if (!text) return; const ref = db.collection('supportMessages').doc(currentAdminChat); const doc = await ref.get(); const msgs = doc.exists && doc.data().messages ? doc.data().messages : []; msgs.push({ from:'admin', text, time: Date.now() }); await ref.set({ messages: msgs }, { merge: true }); document.getElementById('adminChatIn').value = ''; }
+async function adminSendImage(e) { if(!currentAdminChat){toast('error','خطأ','اختر محادثة');e.target.value='';return;} const file=e.target.files[0]; if(!file) return; const reader=new FileReader(); reader.onload=async function(ev) { const ref=db.collection('supportMessages').doc(currentAdminChat); const doc=await ref.get(); const msgs=doc.exists&&doc.data().messages?doc.data().messages:[]; msgs.push({from:'admin',image:ev.target.result,time:Date.now()}); await ref.set({messages:msgs},{merge:true}); }; reader.readAsDataURL(file); e.target.value=''; }
 
 // ========== تهيئة البيانات ==========
 async function seedDatabase() {
-    const status = document.getElementById('seedStatus');
-    status.innerHTML = '<div style="color:var(--gold)"><i class="fas fa-spinner fa-spin"></i> جاري التهيئة...</div>';
-
-    try {
-        const batch = db.batch();
+    const status = document.getElementById('seedStatus'); status.innerHTML = '<div style="color:var(--gold)"><i class="fas fa-spinner fa-spin"></i> جاري التهيئة...</div>';
+    try { const batch = db.batch();
         batch.set(db.collection('settings').doc('general'), { profitMargin: 20 });
-
-        const pm1 = db.collection('paymentMethods').doc();
-        batch.set(pm1, { name: 'سيرياتيل كاش', acc: '0999888777', notes: 'أرسل الحوالة باسم محمد موسى' });
-        const pm2 = db.collection('paymentMethods').doc();
-        batch.set(pm2, { name: 'USDT TRC20', acc: 'TJxK7fBg8V5ZNsFprf3f9s9xY7zMKBz2aP', notes: 'شبكة TRC20 فقط' });
-
+        const pm1 = db.collection('paymentMethods').doc(); batch.set(pm1, { name: 'سيرياتيل كاش', acc: '0999888777', notes: 'أرسل الحوالة باسم محمد موسى' });
+        const pm2 = db.collection('paymentMethods').doc(); batch.set(pm2, { name: 'USDT TRC20', acc: 'TJxK7fBg8V5ZNsFprf3f9s9xY7zMKBz2aP', notes: 'شبكة TRC20 فقط' });
+        batch.set(db.collection('settings').doc('contact'), { whatsapp: '963999888777', telegram: '@shahnaw_support', phone: '0999888777' });
         const prods = [
             {name:'PUBG Mobile 60 UC',cat:'pubg',cost:28000,img:'https://picsum.photos/seed/pubg60/400/300',desc:'شحن 60 وحدة UC',badge:'hot'},
             {name:'PUBG Mobile 325 UC',cat:'pubg',cost:135000,img:'https://picsum.photos/seed/pubg325/400/300',desc:'شحن 325 وحدة UC',badge:''},
@@ -591,18 +578,11 @@ async function seedDatabase() {
             {name:'Discord Nitro شهر',cat:'subscriptions',cost:245000,img:'https://picsum.photos/seed/discord1/400/300',desc:'اشتراك Discord شهر',badge:''},
         ];
         prods.forEach(p => { batch.set(db.collection('products').doc(), p); });
-
         await batch.commit();
-        status.innerHTML = '<div style="color:var(--success)"><i class="fas fa-check-circle"></i> تمت التهيئة بنجاح! المنتجات والطرق مضافة.</div>';
-        loadAdminData();
-        toast('success','تمت التهيئة','الموقع جاهز للاستخدام!');
-    } catch(e) {
-        status.innerHTML = `<div style="color:var(--danger)"><i class="fas fa-exclamation-circle"></i> خطأ: ${e.message}</div>`;
-        toast('error','خطأ','تأكد من تفعيل Firestore و Authentication');
-    }
+        status.innerHTML = '<div style="color:var(--success)"><i class="fas fa-check-circle"></i> تمت التهيئة بنجاح!</div>'; loadAdminData(); toast('success','تمت التهيئة','الموقع جاهز!');
+    } catch(e) { status.innerHTML = `<div style="color:var(--danger)"><i class="fas fa-exclamation-circle"></i> خطأ: ${e.message}</div>`; toast('error','خطأ','تأكد من تفعيل Firestore و Authentication'); }
 }
 
-// ========== مساعدات ==========
 function openModal(id) { document.getElementById(id).classList.add('active'); }
 function closeModal(id) { document.getElementById(id).classList.remove('active'); }
 function toast(type,title,msg) { const c=document.getElementById('toastC'); const t=document.createElement('div'); t.className=`toast ${type}`; const ic={success:'fa-check-circle',error:'fa-exclamation-circle',info:'fa-info-circle'}; t.innerHTML=`<i class="fas ${ic[type]}" style="font-size:16px"></i><div><div style="font-size:12px;font-weight:700">${title}</div><div style="font-size:11px;color:var(--txt2)">${msg}</div></div>`; c.appendChild(t); setTimeout(()=>{t.classList.add('removing');setTimeout(()=>t.remove(),300);},3500); }
