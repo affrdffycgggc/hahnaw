@@ -46,33 +46,30 @@
         .hero h1{font-size:clamp(28px,5vw,52px);font-weight:900;line-height:1.2;margin-bottom:16px}
         .hero h1 .gr{background:linear-gradient(135deg,var(--emerald),#34d399,var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
         .hero p{font-size:16px;color:var(--txt2);max-width:550px;margin:0 auto 32px;line-height:1.8}
-        .hero-stats{display:flex;justify-content:center;gap:40px;margin-top:50px;flex-wrap:wrap}
-        .hero-stat{display:none}.hero-stat.visible{display:block}
-        .hero-stat .num{font-size:28px;font-weight:900;color:var(--emerald)}
-        .hero-stat .lab{font-size:12px;color:var(--txt3)}
         .sec{position:relative;z-index:1;max-width:1250px;margin:0 auto;padding:50px 20px}
         .sec-hd{text-align:center;margin-bottom:36px}
         .sec-hd h2{font-size:28px;font-weight:900;margin-bottom:8px}
-        .sec-hd p{color:var(--txt2);font-size:14px}
         .search{max-width:550px;margin:0 auto 30px;position:relative}
         .search input{width:100%;padding:12px 20px 12px 44px;background:var(--bg3);border:1px solid var(--border);border-radius:12px;color:var(--txt);font-family:'Cairo';font-size:14px;outline:none;transition:.3s}
         .search input:focus{border-color:var(--emerald);box-shadow:0 0 15px var(--emerald-g)}
         .search i{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--txt3)}
         .section-tabs{display:flex;gap:12px;overflow-x:auto;padding-bottom:12px;margin-bottom:20px;justify-content:center;flex-wrap:wrap}
-        .section-tab{padding:12px 28px;background:var(--bg3);border:2px solid var(--border);border-radius:14px;font-size:15px;font-weight:700;cursor:pointer;transition:.3s;white-space:nowrap;display:flex;align-items:center;gap:8px}
-        .section-tab:hover,.section-tab.active{border-color:var(--emerald);background:rgba(16,185,129,.1);color:var(--emerald)}
-        .section-tab i{font-size:18px}
+        .section-tab{padding:12px 28px;background:var(--bg3);border:2px solid var(--border);border-radius:14px;font-size:15px;font-weight:700;cursor:pointer;transition:.3s;white-space:nowrap;display:flex;align-items:center;gap:8px;background-size:cover;background-position:center;position:relative;overflow:hidden}
+        .section-tab::before{content:'';position:absolute;inset:0;background:rgba(10,15,28,.75);z-index:1;transition:.3s}
+        .section-tab:hover::before{background:rgba(10,15,28,.6)}
+        .section-tab>*{position:relative;z-index:2}
+        .section-tab:hover,.section-tab.active{border-color:var(--emerald);color:var(--emerald)}
         .cats{display:flex;gap:10px;overflow-x:auto;padding-bottom:10px;margin-bottom:30px}
         .cat-chip{flex-shrink:0;padding:10px 20px;background:var(--bg3);border:1px solid var(--border);border-radius:12px;font-size:13px;font-weight:700;cursor:pointer;transition:.2s;white-space:nowrap;display:flex;align-items:center;gap:8px}
         .cat-chip:hover,.cat-chip.active{background:rgba(16,185,129,.15);border-color:var(--emerald);color:var(--emerald)}
-        .cat-chip img{width:28px;height:28px;border-radius:6px;object-fit:cover}
+        .cat-chip img{width:24px;height:24px;border-radius:50%;object-fit:cover}
         .pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
         .pcard{background:var(--bg3);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:.3s;cursor:pointer}
         .pcard:hover{border-color:var(--emerald);transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,.3)}
-        .pcard-img{width:100%;height:150px;position:relative;overflow:hidden;background:var(--bg2)}
+        .pcard-img{width:100%;height:150px;position:relative;overflow:hidden}
         .pcard-img img{width:100%;height:100%;object-fit:cover;transition:.4s}
         .pcard:hover .pcard-img img{transform:scale(1.06)}
-        .pcard-badge{position:absolute;top:8px;right:8px;padding:3px 10px;border-radius:16px;font-size:10px;font-weight:700;color:#fff}
+        .pcard-badge{position:absolute;top:8px;right:8px;padding:3px 10px;border-radius:16px;font-size:10px;font-weight:700;color:#fff;z-index:3}
         .pcard-badge.hot{background:#ef4444}.pcard-badge.new{background:#22c55e}
         .pcard-info{padding:14px}
         .pcard-info h3{font-size:14px;font-weight:700;margin-bottom:4px}
@@ -80,13 +77,6 @@
         .pcard-pr{display:flex;align-items:center;justify-content:space-between}
         .pprice{font-size:17px;font-weight:900;color:var(--emerald)}
         .buy-btn{padding:6px 14px;background:linear-gradient(135deg,var(--emerald),var(--emerald-d));color:#fff;border:none;border-radius:8px;font-family:'Cairo';font-size:11px;font-weight:700;cursor:pointer}
-        .ads-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-bottom:30px}
-        .ad-card{background:var(--bg3);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:.3s}
-        .ad-card:hover{border-color:var(--gold);transform:translateY(-3px)}
-        .ad-card img{width:100%;height:180px;object-fit:cover}
-        .ad-card-text{padding:30px;text-align:center;font-size:20px;font-weight:700;color:var(--gold);background:linear-gradient(135deg,rgba(245,158,11,.1),rgba(217,119,6,.05));min-height:120px;display:flex;align-items:center;justify-content:center}
-        .ad-card-content{padding:12px}
-        .ad-card-content h3{font-size:14px;font-weight:700}
         .modal-ov{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);backdrop-filter:blur(6px);z-index:2000;display:none;align-items:center;justify-content:center;padding:20px}
         .modal-ov.active{display:flex}
         .modal{background:var(--bg2);border:1px solid var(--border);border-radius:18px;width:100%;max-width:480px;padding:32px 24px;position:relative;animation:mIn .3s ease;max-height:90vh;overflow-y:auto}
@@ -105,6 +95,11 @@
         .account-box .acc-id{font-size:20px;font-weight:900;color:var(--emerald);letter-spacing:2px;margin:8px 0;direction:ltr}
         .qr-wrap{display:flex;justify-content:center;margin:12px 0}
         .qr-wrap div{background:#fff;padding:8px;border-radius:8px}
+        .copy-row{display:flex;align-items:center;gap:8px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:6px 10px;margin-top:6px}
+        .copy-row .copy-text{flex:1;font-size:13px;font-weight:700;color:var(--emerald);direction:ltr;text-align:left;word-break:break-all;font-family:monospace,'Cairo'}
+        .copy-btn{padding:6px 14px;background:rgba(16,185,129,.15);border:1px solid var(--emerald);border-radius:6px;color:var(--emerald);font-family:'Cairo';font-size:11px;font-weight:700;cursor:pointer;transition:.2s;white-space:nowrap;display:flex;align-items:center;gap:4px}
+        .copy-btn:hover{background:var(--emerald);color:#fff}
+        .copy-btn.copied{background:var(--success);border-color:var(--success);color:#fff}
         .orders-list{display:flex;flex-direction:column;gap:12px}
         .order-card{background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:16px;cursor:pointer;transition:.2s}
         .order-card:hover{border-color:var(--emerald)}
@@ -121,7 +116,6 @@
         .chat-msg.admin{background:var(--bg4);align-self:flex-start;border-bottom-left-radius:4px}
         .chat-msg .sender{font-size:10px;font-weight:700;color:var(--emerald);margin-bottom:4px}
         .chat-msg .time{font-size:9px;color:var(--txt3);margin-top:4px}
-        .chat-msg img{max-width:100%;border-radius:8px;margin-top:6px}
         .chat-input{display:flex;gap:8px;padding:12px;border-top:1px solid var(--border);background:var(--bg2)}
         .chat-input input{flex:1;padding:10px;background:var(--bg3);border:1px solid var(--border);border-radius:8px;color:var(--txt);font-family:'Cairo';font-size:13px;outline:none}
         .chat-input button{padding:10px 16px;background:var(--emerald);color:#fff;border:none;border-radius:8px;cursor:pointer}
@@ -167,11 +161,7 @@
         .profit-slider input[type=range]{flex:1;accent-color:var(--emerald)}
         .profit-val{font-size:24px;font-weight:900;color:var(--emerald);min-width:60px;text-align:center}
         .pm-card{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:16px;display:flex;gap:16px;align-items:center;margin-bottom:12px}
-        .pm-qr{background:#fff;padding:6px;border-radius:8px;flex-shrink:0}
-        .pm-info h4{font-size:14px;font-weight:700;margin-bottom:4px}
-        .pm-info p{font-size:11px;color:var(--txt2)}
         .admin-chat-item{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:12px;cursor:pointer;transition:.2s;display:flex;align-items:center;gap:12px;margin-bottom:8px}
-        .admin-chat-item:hover{border-color:var(--emerald)}
         .admin-chat-item .av{width:36px;height:36px;background:rgba(16,185,129,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--emerald);flex-shrink:0}
         .support-fab{position:fixed;bottom:24px;left:24px;z-index:800;width:56px;height:56px;background:linear-gradient(135deg,var(--emerald),var(--emerald-d));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;color:#fff;cursor:pointer;box-shadow:0 4px 20px var(--emerald-g)}
         footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid var(--border);padding:32px 20px 16px;margin-top:40px}
@@ -186,7 +176,18 @@
         .seed-progress .bar-fill{height:100%;background:var(--emerald);border-radius:3px;transition:width .3s}
         .divider{display:flex;align-items:center;gap:12px;margin:16px 0;color:var(--txt3);font-size:12px}
         .divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border)}
-        @media(max-width:768px){.admin-side{width:100%;position:relative;height:auto;border-left:none;border-bottom:1px solid var(--border)}.admin-main{margin-right:0}.admin-layout{flex-direction:column}.pgrid{grid-template-columns:repeat(auto-fill,minmax(170px,1fr))}.ads-grid{grid-template-columns:1fr}.section-tabs{justify-content:flex-start}}
+        .img-preview{width:60px;height:60px;border-radius:8px;object-fit:cover;margin-top:8px;border:1px solid var(--border)}
+        .variant-list{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+        .variant-item{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--bg);border:2px solid var(--border);border-radius:10px;cursor:pointer;transition:.2s}
+        .variant-item:hover{border-color:var(--txt3)}
+        .variant-item.selected{border-color:var(--emerald);background:rgba(16,185,129,.05)}
+        .variant-item .v-radio{width:18px;height:18px;border-radius:50%;border:2px solid var(--txt3);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:.2s}
+        .variant-item.selected .v-radio{border-color:var(--emerald);background:var(--emerald)}
+        .variant-item.selected .v-radio::after{content:'';width:8px;height:8px;border-radius:50%;background:#fff}
+        .variant-item .v-info{flex:1}
+        .variant-item .v-name{font-size:13px;font-weight:700}
+        .variant-item .v-price{font-size:14px;font-weight:900;color:var(--emerald)}
+        @media(max-width:768px){.admin-side{width:100%;position:relative;height:auto;border-left:none;border-bottom:1px solid var(--border)}.admin-main{margin-right:0}.admin-layout{flex-direction:column}.pgrid{grid-template-columns:repeat(auto-fill,minmax(170px,1fr))}}
     </style>
 </head>
 <body>
@@ -196,428 +197,394 @@
 <div id="mainSite">
     <nav class="navbar"><div class="nav-c">
         <div class="logo" onclick="window.scrollTo({top:0,behavior:'smooth'})"><div class="logo-ic"><i class="fas fa-bolt"></i></div><span class="logo-tx">شحن_NOW</span></div>
-        <div class="nav-links" id="navLinks"><a href="#products" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">المنتجات</a><button class="nav-link-btn" onclick="showMyOrders()"><i class="fas fa-receipt"></i> طلباتي</button><button class="nav-link-btn" onclick="showMyAccount()"><i class="fas fa-user-circle"></i> حسابي</button><button class="nav-link-btn" onclick="showLoginModal()"><i class="fas fa-sign-in-alt"></i> تسجيل دخول</button></div>
-        <div class="nav-acts"><button class="btn btn-p btn-sm" id="accountDisplay" onclick="showMyAccount()"><i class="fas fa-user"></i> <span id="accountDisplayText">جاري التحميل...</span></button><button class="mob-btn" onclick="document.getElementById('navLinks').style.display=document.getElementById('navLinks').style.display==='flex'?'none':'flex'"><i class="fas fa-bars"></i></button></div>
+        <div class="nav-links" id="navLinks"><a href="#products">المنتجات</a><button class="nav-link-btn" onclick="showMyOrders()"><i class="fas fa-receipt"></i> طلباتي</button><button class="nav-link-btn" onclick="showMyAccount()"><i class="fas fa-user-circle"></i> حسابي</button><button class="nav-link-btn" onclick="showLoginModal()"><i class="fas fa-sign-in-alt"></i> دخول</button></div>
+        <div class="nav-acts"><button class="btn btn-p btn-sm" onclick="showMyAccount()"><i class="fas fa-user"></i> <span id="accountDisplayText">...</span></button><button class="mob-btn" onclick="document.getElementById('navLinks').style.display=document.getElementById('navLinks').style.display==='flex'?'none':'flex'"><i class="fas fa-bars"></i></button></div>
     </div></nav>
 
     <section class="hero">
         <h1>شحن <span class="gr">فوري</span> بأسعار تنافسية</h1>
-        <p>جميع الألعاب والبرامج بالليرة السورية. توصيل لحظي مضمون على مدار الساعة.</p>
+        <p>جميع الألعاب والبرامج بالليرة السورية الجديدة. توصيل لحظي مضمون.</p>
         <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><button class="btn btn-p btn-lg" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})"><i class="fas fa-gamepad"></i> تصفح المنتجات</button><button class="btn btn-g btn-lg" onclick="showMyAccount()"><i class="fas fa-user-circle"></i> حسابي</button></div>
-        <div class="hero-stats">
-            <div class="hero-stat" id="statOrdersWrap"><div class="num" id="statOrders">0</div><div class="lab">طلب مكتمل</div></div>
-            <div class="hero-stat" id="statProductsWrap"><div class="num" id="statProducts">0</div><div class="lab">منتج متوفر</div></div>
-            <div class="hero-stat" id="statUsersWrap"><div class="num" id="statUsers">0</div><div class="lab">مستخدم نشط</div></div>
-        </div>
     </section>
 
     <section class="sec" id="adsSection" style="display:none;padding-top:0"><div class="ads-grid" id="adsGrid"></div></section>
 
     <section class="sec" id="products">
-        <div class="sec-hd"><h2>المنتجات</h2><p>اختر القسم ثم الفئة ثم المنتج</p></div>
-        <div class="search"><i class="fas fa-search"></i><input type="text" placeholder="ابحث عن لعبة أو برنامج..." id="searchIn" oninput="handleSearchInput()"></div>
+        <div class="sec-hd"><h2>المنتجات</h2></div>
+        <div class="search"><i class="fas fa-search"></i><input type="text" placeholder="ابحث..." id="searchIn" oninput="handleSearchInput()"></div>
         <div class="section-tabs" id="sectionTabs"></div>
         <div class="cats" id="catsWrap"></div>
         <div class="pgrid" id="pgrid"></div>
     </section>
 
     <footer><div class="foot-grid">
-        <div class="foot-col"><div class="logo" style="margin-bottom:12px"><div class="logo-ic"><i class="fas fa-bolt"></i></div><span class="logo-tx">شحن_NOW</span></div><p style="font-size:12px;color:var(--txt2)">منصة شحن الألعاب بالليرة السورية.</p></div>
-        <div class="foot-col"><h4>روابط</h4><a href="#products"><i class="fas fa-gamepad"></i> المنتجات</a><a href="#" onclick="showMyOrders()"><i class="fas fa-receipt"></i> طلباتي</a></div>
-        <div class="foot-col" id="footerContact"><h4>تواصل معنا</h4><a href="#" id="footerWhatsapp" style="display:none"><i class="fab fa-whatsapp" style="color:#25D366"></i> <span id="footerWhatsappText"></span></a><a href="#" id="footerTelegram" style="display:none"><i class="fab fa-telegram" style="color:#0088cc"></i> <span id="footerTelegramText"></span></a><a href="tel:" id="footerPhone" style="display:none"><i class="fas fa-phone" style="color:var(--emerald)"></i> <span id="footerPhoneText"></span></a></div>
+        <div class="foot-col"><div class="logo" style="margin-bottom:12px"><div class="logo-ic"><i class="fas fa-bolt"></i></div><span class="logo-tx">شحن_NOW</span></div></div>
+        <div class="foot-col" id="footerContact"><h4>تواصل معنا</h4><a href="#" id="footerWhatsapp" style="display:none"><i class="fab fa-whatsapp" style="color:#25D366"></i> <span id="footerWhatsappText"></span></a><a href="#" id="footerTelegram" style="display:none"><i class="fab fa-telegram" style="color:#0088cc"></i> <span id="footerTelegramText"></span></a></div>
     </div><div class="foot-btm">&copy; 2025 شحن_NOW</div></footer>
     <div class="support-fab" onclick="showSupportChat()"><i class="fas fa-headset"></i></div>
 </div>
 
-<div class="modal-ov warn-modal" id="warnModal"><div class="modal"><div class="warn-icon"><i class="fas fa-exclamation-triangle"></i></div><h2 style="color:var(--gold)">احفظ بيانات حسابك!</h2><p class="mdesc">هذا حسابك الوحيد. لا يمكن استرجاعه إذا فقدته!</p><div class="account-box"><div style="font-size:12px;color:var(--txt3)">رقم الحساب</div><div class="acc-id" id="warnAccId"></div><div class="qr-wrap" id="warnQr"></div></div><button class="btn btn-g btn-lg" style="width:100%;justify-content:center" onclick="closeModal('warnModal')">حفظت البيانات - متابعة</button></div></div>
-
-<div class="modal-ov" id="accountModal"><div class="modal"><button class="modal-x" onclick="closeModal('accountModal')"><i class="fas fa-times"></i></button><h2>حسابي</h2><div class="account-box" id="accountBox"></div><button class="btn btn-d" style="width:100%;justify-content:center;margin-top:12px" onclick="logoutUser()"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</button></div></div>
-
-<div class="modal-ov" id="loginModal"><div class="modal"><button class="modal-x" onclick="closeModal('loginModal')"><i class="fas fa-times"></i></button><h2>تسجيل الدخول</h2><p class="mdesc">أدخل رقم حسابك أو ارفع صورة الـ QR</p><div class="fg"><label>رقم الحساب (MC-XXXXXX)</label><input type="text" id="loginAccIn" placeholder="MC-XXXXXX" style="direction:ltr;text-align:center;font-size:18px;letter-spacing:2px"></div><button class="btn btn-p btn-lg" style="width:100%;justify-content:center;margin-bottom:16px" onclick="loginWithId()"><i class="fas fa-sign-in-alt"></i> دخول بالرقم</button><div class="divider">أو</div><div class="fg"><label>رفع صورة QR للحساب</label><label class="file-label" style="width:100%;justify-content:center;cursor:pointer"><i class="fas fa-qrcode"></i> اختر صورة QR<input type="file" accept="image/*" style="display:none" onchange="scanQRFromFile(event)"></label></div><div id="qrScanResult" style="margin-top:8px"></div></div></div>
-
+<!-- Modals -->
+<div class="modal-ov warn-modal" id="warnModal"><div class="modal"><div class="warn-icon"><i class="fas fa-exclamation-triangle"></i></div><h2 style="color:var(--gold)">احفظ بيانات حسابك!</h2><div class="account-box"><div style="font-size:12px;color:var(--txt3)">رقم الحساب</div><div class="acc-id" id="warnAccId"></div><div class="qr-wrap" id="warnQr"></div><button class="copy-btn" style="width:100%;justify-content:center;margin-top:8px" onclick="copyAccId()"><i class="fas fa-copy"></i> نسخ</button></div><button class="btn btn-g btn-lg" style="width:100%;justify-content:center" onclick="closeModal('warnModal')">متابعة</button></div></div>
+<div class="modal-ov" id="accountModal"><div class="modal"><button class="modal-x" onclick="closeModal('accountModal')"><i class="fas fa-times"></i></button><h2>حسابي</h2><div class="account-box" id="accountBox"></div><button class="btn btn-d" style="width:100%;justify-content:center;margin-top:12px" onclick="logoutUser()"><i class="fas fa-sign-out-alt"></i> خروج</button></div></div>
+<div class="modal-ov" id="loginModal"><div class="modal"><button class="modal-x" onclick="closeModal('loginModal')"><i class="fas fa-times"></i></button><h2>تسجيل الدخول</h2><div class="fg"><label>رقم الحساب</label><input type="text" id="loginAccIn" style="direction:ltr;text-align:center;font-size:18px"></div><button class="btn btn-p btn-lg" style="width:100%;justify-content:center" onclick="loginWithId()"><i class="fas fa-sign-in-alt"></i> دخول</button><div class="divider">أو</div><label class="file-label" style="width:100%;justify-content:center"><i class="fas fa-qrcode"></i> رفع صورة QR<input type="file" accept="image/*" style="display:none" onchange="scanQRFromFile(event)"></label><div id="qrScanResult" style="margin-top:8px"></div></div></div>
 <div class="modal-ov" id="ordersModal"><div class="modal" style="max-width:560px"><button class="modal-x" onclick="closeModal('ordersModal')"><i class="fas fa-times"></i></button><h2>طلباتي</h2><div id="ordersList" class="orders-list"></div></div></div>
-<div class="modal-ov" id="orderDetailModal"><div class="modal" style="max-width:460px"><button class="modal-x" onclick="closeModal('orderDetailModal')"><i class="fas fa-times"></i></button><div id="orderDetailContent"></div></div></div>
 <div class="modal-ov" id="purchaseModal"><div class="modal"><button class="modal-x" onclick="closeModal('purchaseModal')"><i class="fas fa-times"></i></button><div id="purchaseContent"></div></div></div>
 <div class="modal-ov" id="supportModal"><div class="modal" style="max-width:440px;padding:0"><div style="padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between"><h2 style="font-size:16px;margin:0"><i class="fas fa-headset" style="color:var(--emerald)"></i> الدعم</h2><button class="modal-x" style="position:static" onclick="closeModal('supportModal')"><i class="fas fa-times"></i></button></div><div class="chat-box" style="border:none;border-radius:0;height:350px"><div class="chat-msgs" id="supportMsgs"></div><div class="chat-input"><input type="text" id="supportIn" placeholder="اكتب رسالتك..." onkeydown="if(event.key==='Enter')sendSupportMsg()"><button onclick="sendSupportMsg()"><i class="fas fa-paper-plane"></i></button></div></div></div></div>
 
+<!-- Admin -->
 <div class="admin" id="adminPanel"><div class="admin-layout">
     <aside class="admin-side">
         <div class="logo" style="padding:0 16px;margin-bottom:28px"><div class="logo-ic"><i class="fas fa-cog"></i></div><span class="logo-tx">لوحة التحكم</span></div>
-        <div class="nav-sec"><div class="nav-sec-t">الرئيسية</div><div class="anav active" data-tab="dashboard" onclick="switchTab(this)"><i class="fas fa-chart-line"></i> المعلومات</div><div class="anav" data-tab="orders-mgmt" onclick="switchTab(this)"><i class="fas fa-shopping-cart"></i> الطلبات</div><div class="anav" data-tab="products-mgmt" onclick="switchTab(this)"><i class="fas fa-boxes-stacked"></i> المنتجات</div></div>
-        <div class="nav-sec"><div class="nav-sec-t">الإعدادات</div><div class="anav" data-tab="payment-methods" onclick="switchTab(this)"><i class="fas fa-credit-card"></i> طرق الشحن</div><div class="anav" data-tab="profit" onclick="switchTab(this)"><i class="fas fa-percent"></i> العملة والربح</div><div class="anav" data-tab="ads-mgmt" onclick="switchTab(this)"><i class="fas fa-bullhorn"></i> الإعلانات</div><div class="anav" data-tab="contact-mgmt" onclick="switchTab(this)"><i class="fas fa-address-book"></i> أرقام التواصل</div><div class="anav" data-tab="support-mgmt" onclick="switchTab(this)"><i class="fas fa-comments"></i> المحادثات</div><div class="anav" data-tab="setup" onclick="switchTab(this)"><i class="fas fa-database"></i> تهيئة البيانات</div></div>
+        <div class="nav-sec"><div class="nav-sec-t">الرئيسية</div><div class="anav active" data-tab="dashboard" onclick="switchTab(this)"><i class="fas fa-chart-line"></i> المعلومات</div><div class="anav" data-tab="orders-mgmt" onclick="switchTab(this)"><i class="fas fa-shopping-cart"></i> الطلبات</div><div class="anav" data-tab="sections-mgmt" onclick="switchTab(this)"><i class="fas fa-layer-group"></i> الأقسام</div><div class="anav" data-tab="products-mgmt" onclick="switchTab(this)"><i class="fas fa-boxes-stacked"></i> المنتجات</div></div>
+        <div class="nav-sec"><div class="nav-sec-t">الإعدادات</div><div class="anav" data-tab="payment-methods" onclick="switchTab(this)"><i class="fas fa-credit-card"></i> طرق الشحن</div><div class="anav" data-tab="profit" onclick="switchTab(this)"><i class="fas fa-percent"></i> العملة والربح</div><div class="anav" data-tab="ai-mgmt" onclick="switchTab(this)"><i class="fas fa-robot"></i> الذكاء الاصطناعي</div><div class="anav" data-tab="contact-mgmt" onclick="switchTab(this)"><i class="fas fa-address-book"></i> التواصل</div><div class="anav" data-tab="support-mgmt" onclick="switchTab(this)"><i class="fas fa-comments"></i> المحادثات</div></div>
         <div class="nav-sec"><div class="anav" onclick="goBackToSite()"><i class="fas fa-arrow-right"></i> العودة للموقع</div><div class="anav" style="color:var(--danger)" onclick="logoutAdmin()"><i class="fas fa-sign-out-alt"></i> خروج</div></div>
     </aside>
     <main class="admin-main">
-        <div class="atab active" id="tab-dashboard"><div class="admin-top"><h1>لوحة المعلومات</h1></div><div class="stat-grid"><div class="stcard em"><div class="st-ic"><i class="fas fa-coins"></i></div><div class="st-val" id="adminSales">0 ل.س</div><div class="st-lab">المبيعات</div></div><div class="stcard gl"><div class="st-ic"><i class="fas fa-check-circle"></i></div><div class="st-val" id="adminDone">0</div><div class="st-lab">مكتملة</div></div><div class="stcard bl"><div class="st-ic"><i class="fas fa-users"></i></div><div class="st-val" id="adminUsers">0</div><div class="st-lab">مستخدمين</div></div><div class="stcard rd"><div class="st-ic"><i class="fas fa-clock"></i></div><div class="st-val" id="adminPending">0</div><div class="st-lab">قيد الانتظار</div></div></div><div class="tbl-c"><div class="tbl-hd"><h3>آخر الطلبات</h3></div><table><thead><tr><th>#</th><th>المستخدم</th><th>المنتج</th><th>المبلغ</th><th>الحالة</th><th>إجراء</th></tr></thead><tbody id="adminRecentOrders"></tbody></table></div></div>
+        <div class="atab active" id="tab-dashboard"><div class="admin-top"><h1>لوحة المعلومات</h1></div><div class="stat-grid"><div class="stcard em"><div class="st-ic"><i class="fas fa-coins"></i></div><div class="st-val" id="adminSales">0</div><div class="st-lab">المبيعات</div></div><div class="stcard gl"><div class="st-ic"><i class="fas fa-check-circle"></i></div><div class="st-val" id="adminDone">0</div><div class="st-lab">مكتملة</div></div><div class="stcard bl"><div class="st-ic"><i class="fas fa-users"></i></div><div class="st-val" id="adminUsers">0</div><div class="st-lab">مستخدمين</div></div><div class="stcard rd"><div class="st-ic"><i class="fas fa-clock"></i></div><div class="st-val" id="adminPending">0</div><div class="st-lab">قيد الانتظار</div></div></div></div>
         <div class="atab" id="tab-orders-mgmt"><div class="admin-top"><h1>إدارة الطلبات</h1></div><div class="tbl-c"><table><thead><tr><th>رقم</th><th>المستخدم</th><th>المنتج</th><th>المبلغ</th><th>الحالة</th><th>إجراء</th></tr></thead><tbody id="adminAllOrders"></tbody></table></div></div>
-        <div class="atab" id="tab-products-mgmt"><div class="admin-top"><h1>إدارة المنتجات</h1><button class="btn btn-p btn-sm" onclick="toggleAddProduct()"><i class="fas fa-plus"></i> إضافة</button></div><div id="addProductForm" style="display:none;margin-bottom:20px"><div style="background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:20px"><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><div class="fg"><label>اسم المنتج</label><input type="text" id="npName"></div><div class="fg"><label>القسم</label><select id="npSection" onchange="updateCategoryOptions()"></select></div><div class="fg"><label>الفئة</label><select id="npCat"></select></div><div class="fg"><label>سعر التكلفة بالدولار ($)</label><input type="number" id="npCost" step="0.01"></div><div class="fg"><label>رابط الصورة</label><input type="url" id="npImg" dir="ltr"></div><div class="fg"><label>نوع العلامة</label><select id="npBadge"><option value="">بدون</option><option value="hot">الأكثر مبيعاً</option><option value="new">جديد</option></select></div></div><div class="fg"><label>الوصف</label><input type="text" id="npDesc"></div><div style="display:flex;gap:8px"><button class="btn btn-p" onclick="addProduct()"><i class="fas fa-save"></i> حفظ</button><button class="btn btn-s" onclick="toggleAddProduct()">إلغاء</button></div></div></div><div class="tbl-c"><table><thead><tr><th>المنتج</th><th>القسم</th><th>الفئة</th><th>التكلفة ($)</th><th>سعر البيع (ل.س)</th><th>إجراء</th></tr></thead><tbody id="adminProducts"></tbody></table></div></div>
-        <div class="atab" id="tab-payment-methods"><div class="admin-top"><h1>طرق الشحن</h1><button class="btn btn-p btn-sm" onclick="toggleAddPM()"><i class="fas fa-plus"></i> إضافة</button></div><div id="addPMForm" style="display:none;margin-bottom:20px"><div style="background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:20px"><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><div class="fg"><label>اسم الطريقة</label><input type="text" id="pmName"></div><div class="fg"><label>رقم الحساب</label><input type="text" id="pmAcc" dir="ltr"></div></div><div class="fg"><label>تعليمات</label><input type="text" id="pmNotes"></div><button class="btn btn-p" onclick="addPaymentMethod()"><i class="fas fa-save"></i> حفظ</button><button class="btn btn-s" onclick="toggleAddPM()">إلغاء</button></div></div><div id="pmList"></div></div>
-        <div class="atab" id="tab-profit"><div class="admin-top"><h1>العملة والربح</h1></div><div class="profit-card"><h3>سعر صرف الدولار (ل.س)</h3><p style="font-size:12px;color:var(--txt2);margin-bottom:12px">جميع الأسعار تحسب: سعر التكلفة ($) × سعر الصرف × (1 + نسبة الربح%)</p><div class="fg"><label>1 دولار = كم ليرة سورية جديدة؟</label><input type="number" id="exchangeRateIn" style="font-size:20px;text-align:center" value="14500"></div><button class="btn btn-p btn-lg" style="width:100%;justify-content:center;margin-bottom:16px" onclick="saveExchangeRate()"><i class="fas fa-save"></i> حفظ سعر الصرف</button></div><div class="profit-card"><h3>نسبة الربح</h3><div class="profit-slider"><span style="font-size:12px;color:var(--txt3)">0%</span><input type="range" min="0" max="100" value="20" id="profitSlider" oninput="document.getElementById('profitVal').textContent=this.value+'%'"><span style="font-size:12px;color:var(--txt3)">100%</span></div><div class="profit-val" id="profitVal">20%</div><button class="btn btn-p" style="margin-top:12px" onclick="applyProfit()"><i class="fas fa-check"></i> تطبيق</button></div></div>
-        <div class="atab" id="tab-ads-mgmt"><div class="admin-top"><h1>إدارة الإعلانات</h1><button class="btn btn-p btn-sm" onclick="toggleAddAd()"><i class="fas fa-plus"></i> إضافة إعلان</button></div><div id="addAdForm" style="display:none;margin-bottom:20px"><div style="background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:20px"><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><div class="fg"><label>عنوان الإعلان</label><input type="text" id="adTitle"></div><div class="fg"><label>نوع الإعلان</label><select id="adType"><option value="image">صورة</option><option value="text">نصي</option></select></div><div class="fg"><label>المحتوى (رابط الصورة أو النص)</label><input type="text" id="adContent" dir="ltr"></div><div class="fg"><label>رابط عند الضغط (اختياري)</label><input type="url" id="adLink" dir="ltr"></div></div><button class="btn btn-p" onclick="addAd()"><i class="fas fa-save"></i> حفظ</button><button class="btn btn-s" onclick="toggleAddAd()">إلغاء</button></div></div><div id="adminAdsList"></div></div>
-        <div class="atab" id="tab-contact-mgmt"><div class="admin-top"><h1>أرقام التواصل</h1></div><div style="background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:24px"><div class="fg"><label><i class="fab fa-whatsapp" style="color:#25D366"></i> رقم واتساب</label><input type="text" id="ctWhatsapp" placeholder="963999888777" dir="ltr"></div><div class="fg"><label><i class="fab fa-telegram" style="color:#0088cc"></i> معرف تيليجرام</label><input type="text" id="ctTelegram" placeholder="@username" dir="ltr"></div><div class="fg"><label><i class="fas fa-phone" style="color:var(--emerald)"></i> رقم الهاتف</label><input type="text" id="ctPhone" placeholder="0999888777" dir="ltr"></div><button class="btn btn-p btn-lg" style="width:100%;justify-content:center" onclick="saveContact()"><i class="fas fa-save"></i> حفظ</button></div></div>
-        <div class="atab" id="tab-support-mgmt"><div class="admin-top"><h1>المحادثات</h1></div><div style="display:flex;gap:16px;flex-wrap:wrap"><div style="flex:0 0 240px" id="adminChatList"></div><div style="flex:1;min-width:280px"><div class="chat-box" style="height:400px"><div class="chat-msgs" id="adminChatMsgs"><p style="text-align:center;color:var(--txt3);padding:40px">اختر محادثة</p></div><div class="chat-input"><input type="text" id="adminChatIn" placeholder="اكتب ردك..." onkeydown="if(event.key==='Enter')adminSendMsg()"><label class="file-label"><i class="fas fa-image"></i><input type="file" accept="image/*" style="display:none" onchange="adminSendImage(event)"></label><button onclick="adminSendMsg()" style="padding:10px 14px;background:var(--emerald);color:#fff;border:none;border-radius:8px;cursor:pointer"><i class="fas fa-paper-plane"></i></button></div></div></div></div></div>
-        <div class="atab" id="tab-setup"><div class="admin-top"><h1>تهيئة البيانات</h1></div><div class="profit-card"><h3>اضغط الزر لتهيئة الأقسام والفئات والمنتجات</h3><p style="font-size:12px;color:var(--txt2);margin-bottom:12px">تأكد أولاً من تفعيل Firestore Database في وضع Test Mode من Firebase Console</p><button class="btn btn-g btn-lg" onclick="seedDatabase()"><i class="fas fa-database"></i> تهيئة البيانات</button><div id="seedStatus" style="margin-top:12px"></div></div></div>
+        
+        <div class="atab" id="tab-sections-mgmt">
+            <div class="admin-top"><h1>إدارة الأقسام</h1><button class="btn btn-p btn-sm" onclick="toggleAddSection()"><i class="fas fa-plus"></i> إضافة قسم</button></div>
+            <div id="addSectionForm" style="display:none;margin-bottom:20px"><div style="background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:20px">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><div class="fg"><label>اسم القسم</label><input type="text" id="secName"></div><div class="fg"><label>أيقونة</label><input type="text" id="secIcon" placeholder="fas fa-gamepad" dir="ltr"></div></div>
+                <div class="fg"><label>صورة خلفية القسم (من الاستديو)</label><input type="file" accept="image/*" id="secBgImg" onchange="previewImg(event,'secBgPreview')"></div>
+                <img id="secBgPreview" class="img-preview" style="display:none">
+                <div style="display:flex;gap:8px;margin-top:8px"><button class="btn btn-p" onclick="addSection()"><i class="fas fa-save"></i> حفظ</button><button class="btn btn-s" onclick="toggleAddSection()">إلغاء</button></div>
+            </div></div>
+            <div class="tbl-c"><table><thead><tr><th>القسم</th><th>الأيقونة</th><th>الخلفية</th><th>إجراء</th></tr></thead><tbody id="adminSections"></tbody></table></div>
+        </div>
+
+        <div class="atab" id="tab-products-mgmt"><div class="admin-top"><h1>إدارة المنتجات</h1><button class="btn btn-p btn-sm" onclick="toggleAddProduct()"><i class="fas fa-plus"></i> إضافة</button></div><div id="addProductForm" style="display:none;margin-bottom:20px"><div style="background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:20px"><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><div class="fg"><label>اسم المنتج</label><input type="text" id="npName"></div><div class="fg"><label>القسم</label><select id="npSection" onchange="updateCategoryOptions()"></select></div><div class="fg"><label>الفئة</label><select id="npCat"></select></div><div class="fg"><label>التكلفة ($)</label><input type="number" id="npCost" step="0.01"></div><div class="fg"><label>رابط الصورة</label><input type="url" id="npImg" dir="ltr"></div><div class="fg"><label>العلامة</label><select id="npBadge"><option value="">بدون</option><option value="hot">مبيعاً</option><option value="new">جديد</option></select></div></div><div class="fg"><label>الوصف</label><input type="text" id="npDesc"></div><div style="display:flex;gap:8px"><button class="btn btn-p" onclick="addProduct()"><i class="fas fa-save"></i> حفظ</button><button class="btn btn-s" onclick="toggleAddProduct()">إلغاء</button></div></div></div><div class="tbl-c"><table><thead><tr><th>المنتج</th><th>القسم</th><th>التكلفة</th><th>إجراء</th></tr></thead><tbody id="adminProducts"></tbody></table></div></div>
+        
+        <div class="atab" id="tab-payment-methods"><div class="admin-top"><h1>طرق الشحن</h1><button class="btn btn-p btn-sm" onclick="toggleAddPM()"><i class="fas fa-plus"></i> إضافة</button></div><div id="addPMForm" style="display:none;margin-bottom:20px"><div style="background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:20px"><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><div class="fg"><label>الاسم</label><input type="text" id="pmName"></div><div class="fg"><label>رقم المحفظة</label><input type="text" id="pmAcc" dir="ltr"></div></div><div class="fg"><label>تعليمات</label><input type="text" id="pmNotes"></div><button class="btn btn-p" onclick="addPaymentMethod()"><i class="fas fa-save"></i> حفظ</button><button class="btn btn-s" onclick="toggleAddPM()">إلغاء</button></div></div><div id="pmList"></div></div>
+        
+        <div class="atab" id="tab-profit"><div class="admin-top"><h1>العملة والربح</h1></div><div class="profit-card"><h3>سعر الصرف (ل.س ج)</h3><div class="fg"><label>1 دولار = كم ل.س ج؟</label><input type="number" id="exchangeRateIn" style="font-size:20px;text-align:center" value="14500"></div><button class="btn btn-p btn-lg" style="width:100%;justify-content:center" onclick="saveExchangeRate()"><i class="fas fa-save"></i> حفظ</button></div><div class="profit-card"><h3>نسبة الربح</h3><div class="profit-slider"><span>0%</span><input type="range" min="0" max="100" value="20" id="profitSlider" oninput="document.getElementById('profitVal').textContent=this.value+'%'"><span>100%</span></div><div class="profit-val" id="profitVal">20%</div><button class="btn btn-p" style="margin-top:12px" onclick="applyProfit()"><i class="fas fa-check"></i> تطبيق</button></div></div>
+
+        <div class="atab" id="tab-ai-mgmt">
+            <div class="admin-top"><h1><i class="fas fa-robot"></i> مساعد الذكاء الاصطناعي (OpenRouter)</h1></div>
+            <div class="profit-card">
+                <h3>توليد الأقسام والمنتجات بالذكاء الاصطناعي</h3>
+                <p style="font-size:12px;color:var(--txt2);margin-bottom:12px">يقوم الذكاء الاصطناعي بتحديد نوع المنتج (كميات محددة، باقات اشتراك، أو كميات مخصصة) وتحديد الأسعار تلقائياً.</p>
+                <div class="fg"><label>مفتاح OpenRouter API</label><input type="password" id="aiApiKey" placeholder="sk-or-v1-..." dir="ltr"></div>
+                <div class="fg"><label>ماذا تريد أن ننشئ؟</label><input type="text" id="aiPrompt" placeholder="ألعاب موبايل، اشتراكات، برامج تصميم..."></div>
+                <button class="btn btn-g btn-lg" style="width:100%;justify-content:center" onclick="generateAIContent()"><i class="fas fa-magic"></i> توليد بالذكاء الاصطناعي</button>
+                <div id="aiStatus" style="margin-top:12px"></div>
+            </div>
+        </div>
+
+        <div class="atab" id="tab-contact-mgmt"><div class="admin-top"><h1>أرقام التواصل</h1></div><div style="background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:24px"><div class="fg"><label><i class="fab fa-whatsapp" style="color:#25D366"></i> واتساب</label><input type="text" id="ctWhatsapp" dir="ltr"></div><div class="fg"><label><i class="fab fa-telegram" style="color:#0088cc"></i> تيليجرام</label><input type="text" id="ctTelegram" dir="ltr"></div><button class="btn btn-p btn-lg" style="width:100%;justify-content:center" onclick="saveContact()"><i class="fas fa-save"></i> حفظ</button></div></div>
+        <div class="atab" id="tab-support-mgmt"><div class="admin-top"><h1>المحادثات</h1></div><div style="display:flex;gap:16px;flex-wrap:wrap"><div style="flex:0 0 240px" id="adminChatList"></div><div style="flex:1;min-width:280px"><div class="chat-box" style="height:400px"><div class="chat-msgs" id="adminChatMsgs"><p style="text-align:center;color:var(--txt3);padding:40px">اختر محادثة</p></div><div class="chat-input"><input type="text" id="adminChatIn" placeholder="اكتب ردك..." onkeydown="if(event.key==='Enter')adminSendMsg()"><button onclick="adminSendMsg()" style="padding:10px 14px;background:var(--emerald);color:#fff;border:none;border-radius:8px;cursor:pointer"><i class="fas fa-paper-plane"></i></button></div></div></div></div></div>
     </main>
 </div></div>
 
 <script>
-const firebaseConfig={apiKey:"AIzaSyAPLowq6DQzi7TjwZYw3zmMfi0AlrUc6DQ",authDomain:"ishhan-580ce.firebaseapp.com",projectId:"ishhan-580ce",storageBucket:"ishhan-580ce.firebasestorage.app",messagingSenderId:"450678873467",appId:"1:450678873467:web:485f101d71f0969cc8f1de",measurementId:"G-M2WY0SCEMJ"};
-firebase.initializeApp(firebaseConfig);
-const db=firebase.firestore();
+const firebaseConfig={apiKey:"AIzaSyAPLowq6DQzi7TjwZYw3zmMfi0AlrUc6DQ",authDomain:"ishhan-580ce.firebaseapp.com",projectId:"ishhan-580ce",storageBucket:"ishhan-580ce.firebasestorage.app",messagingSenderId:"450678873467",appId:"1:450678873467:web:485f101d71f0969cc8f1de"};
+firebase.initializeApp(firebaseConfig);const db=firebase.firestore();
 
-let currentAccountId=null;
-let activeCat='all';
-let activeSection='all';
-let currentAdminChat=null;
+let currentAccountId=null,activeCat='all',activeSection='all',currentAdminChat=null;
 const SECRET_KEYWORD='abd2026';
-let sectionsCache=[];
-let catsCache=[];
-let productsCache=[];
-let settingsCache={profitMargin:20,exchangeRate:14500};
-let contactCache={};
+let sectionsCache=[],catsCache=[],productsCache=[],settingsCache={profitMargin:20,exchangeRate:14500},contactCache={};
 
-// ========== إنشاء الحساب فوراً بدون أي اعتماد على Firebase Auth ==========
-function initAccount(){
-    const savedId=localStorage.getItem('shahnaw_id');
-    if(savedId){
-        currentAccountId=savedId;
-        updateAccountDisplay();
-        syncAccountToFirebase(savedId);
-    }else{
-        const newId='MC-'+Math.random().toString(36).substring(2,8).toUpperCase();
-        currentAccountId=newId;
-        localStorage.setItem('shahnaw_id',newId);
-        updateAccountDisplay();
-        syncAccountToFirebase(newId);
-        showWarning(newId);
-    }
-}
+function copyToClipboard(t,l){if(navigator.clipboard){navigator.clipboard.writeText(t).then(()=>toast('success','تم النسخ',l)).catch(()=>fallbackCopy(t,l))}else{fallbackCopy(t,l)}}
+function fallbackCopy(t,l){const ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.left='-9999px';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');toast('success','تم النسخ',l)}catch(e){}document.body.removeChild(ta)}
+function copyAccId(){copyToClipboard(currentAccountId,'رقم الحساب')}
+function copyPaymentAcc(text,btnId){copyToClipboard(text,'العنوان');const b=document.getElementById(btnId);if(b){b.innerHTML='<i class="fas fa-check"></i> تم';b.classList.add('copied');setTimeout(()=>{b.innerHTML='<i class="fas fa-copy"></i> نسخ';b.classList.remove('copied')},2000)}}
 
-function syncAccountToFirebase(accId){
-    // محاولة مزامنة الحساب مع Firebase - لا توقف أي شيء إذا فشلت
-    db.collection('users').doc(accId).set({createdAt:firebase.firestore.FieldValue.serverTimestamp()},{merge:true}).then(()=>{
-        console.log('Account synced: '+accId);
-    }).catch(e=>{
-        console.log('Firebase sync pending... Will retry later.');
-    });
-}
-
-function updateAccountDisplay(){
-    const el=document.getElementById('accountDisplayText');
-    if(el&&currentAccountId){el.textContent=currentAccountId;}
-}
-
-function showWarning(accId){
-    document.getElementById('warnAccId').textContent=accId;
-    const qw=document.getElementById('warnQr');qw.innerHTML='';
-    new QRCode(qw,{text:accId,width:120,height:120});
-    openModal('warnModal');
-}
-
-// تشغيل إنشاء الحساب فور تحميل الصفحة
+function initAccount(){const s=localStorage.getItem('shahnaw_id');if(s){currentAccountId=s;updateAccountDisplay();syncAccount(s)}else{const n='MC-'+Math.random().toString(36).substring(2,8).toUpperCase();currentAccountId=n;localStorage.setItem('shahnaw_id',n);updateAccountDisplay();syncAccount(n);showWarning(n)}}
+function syncAccount(id){db.collection('users').doc(id).set({createdAt:firebase.firestore.FieldValue.serverTimestamp()},{merge:true}).catch(()=>{})}
+function updateAccountDisplay(){const e=document.getElementById('accountDisplayText');if(e&&currentAccountId)e.textContent=currentAccountId}
+function showWarning(id){document.getElementById('warnAccId').textContent=id;const q=document.getElementById('warnQr');q.innerHTML='';new QRCode(q,{text:id,width:120,height:120});openModal('warnModal')}
 initAccount();
 
-function showLoginModal(){openModal('loginModal');}
+function showLoginModal(){openModal('loginModal')}
+function loginWithId(){const id=document.getElementById('loginAccIn').value.trim().toUpperCase();if(!id){toast('error','خطأ','أدخل رقم الحساب');return}currentAccountId=id;localStorage.setItem('shahnaw_id',id);updateAccountDisplay();syncAccount(id);closeModal('loginModal');toast('success','مرحباً','تم الدخول')}
+function scanQRFromFile(event){const file=event.target.files[0];if(!file)return;const qr=new Html5Qrcode("qrScanResult");qr.scanFile(file,true).then(t=>{document.getElementById('loginAccIn').value=t;loginWithId()}).catch(()=>{document.getElementById('qrScanResult').innerHTML='<p style="color:var(--danger)">لم يتم التعرف</p>'})}
+function logoutUser(){currentAccountId=null;localStorage.removeItem('shahnaw_id');closeModal('accountModal');initAccount();toast('info','تم الخروج','حساب جديد')}
+async function showMyAccount(){if(!currentAccountId){initAccount();return}document.getElementById('accountBox').innerHTML='<div style="font-size:12px;color:var(--txt3)">رقم الحساب</div><div class="acc-id">'+currentAccountId+'</div><div class="qr-wrap" id="accountQr"></div><button class="copy-btn" style="width:100%;justify-content:center;margin-top:8px" onclick="copyAccId()"><i class="fas fa-copy"></i> نسخ</button>';setTimeout(()=>{const q=document.getElementById('accountQr');if(q){q.innerHTML='';new QRCode(q,{text:currentAccountId,width:120,height:120})}},50);openModal('accountModal')}
 
-async function loginWithId(){
-    const id=document.getElementById('loginAccIn').value.trim().toUpperCase();
-    if(!id){toast('error','خطأ','أدخل رقم الحساب');return;}
-    currentAccountId=id;
-    localStorage.setItem('shahnaw_id',id);
-    updateAccountDisplay();
-    syncAccountToFirebase(id);
-    closeModal('loginModal');
-    toast('success','مرحباً','تم تسجيل الدخول: '+id);
-}
-
-function scanQRFromFile(event){
-    const file=event.target.files[0];if(!file)return;
-    const html5QrCode=new Html5Qrcode("qrScanResult");
-    html5QrCode.scanFile(file,true).then(decodedText=>{
-        document.getElementById('loginAccIn').value=decodedText;
-        loginWithId();
-    }).catch(()=>{
-        document.getElementById('qrScanResult').innerHTML='<p style="color:var(--danger);font-size:12px">لم يتم التعرف على QR، أدخل الرقم يدوياً</p>';
-    });
-}
-
-function logoutUser(){
-    currentAccountId=null;
-    localStorage.removeItem('shahnaw_id');
-    closeModal('accountModal');
-    // إنشاء حساب جديد فوراً
-    initAccount();
-    toast('info','تم الخروج','تم إنشاء حساب جديد');
-}
-
-async function showMyAccount(){
-    if(!currentAccountId){initAccount();return;}
-    document.getElementById('accountBox').innerHTML='<div style="font-size:12px;color:var(--txt3)">رقم الحساب</div><div class="acc-id" style="font-size:22px;font-weight:900;color:var(--emerald);letter-spacing:3px;margin:6px 0">'+currentAccountId+'</div><div class="qr-wrap" id="accountQr"></div>';
-    setTimeout(()=>{const qr=document.getElementById('accountQr');if(qr){qr.innerHTML='';new QRCode(qr,{text:currentAccountId,width:120,height:120});}},50);
-    openModal('accountModal');
-}
-
-// ========== تحميل البيانات ==========
 function loadData(){
-    db.collection('settings').doc('general').onSnapshot(doc=>{if(doc.exists)settingsCache=doc.data();renderProducts();});
-    db.collection('sections').orderBy('order').onSnapshot(snap=>{sectionsCache=[];snap.forEach(doc=>sectionsCache.push({id:doc.id,...doc.data()}));renderSectionTabs();renderAdminSectionOptions();});
-    db.collection('categories').orderBy('order').onSnapshot(snap=>{catsCache=[];snap.forEach(doc=>catsCache.push({id:doc.id,...doc.data()}));renderCats();renderAdminCategoryOptions();});
-    db.collection('products').onSnapshot(snap=>{productsCache=[];snap.forEach(doc=>productsCache.push({id:doc.id,...doc.data()}));renderProducts();document.getElementById('statProducts').textContent=productsCache.length;document.getElementById('statProductsWrap').classList.toggle('visible',productsCache.length>0);});
-    db.collection('orders').where('status','==','success').onSnapshot(snap=>{document.getElementById('statOrders').textContent=snap.size;document.getElementById('statOrdersWrap').classList.toggle('visible',snap.size>0);});
-    db.collection('users').onSnapshot(snap=>{document.getElementById('statUsers').textContent=snap.size;document.getElementById('statUsersWrap').classList.toggle('visible',snap.size>0);});
-    db.collection('ads').onSnapshot(snap=>{renderAds(snap);});
-    db.collection('settings').doc('contact').onSnapshot(doc=>{if(doc.exists){contactCache=doc.data();renderContactFooter();}});
+    db.collection('settings').doc('general').onSnapshot(d=>{if(d.exists)settingsCache=d.data();renderProducts()});
+    db.collection('sections').orderBy('order').onSnapshot(s=>{sectionsCache=[];s.forEach(d=>sectionsCache.push({id:d.id,...d.data()}));renderSectionTabs();renderAdminSectionOptions();renderAdminSections()});
+    db.collection('categories').orderBy('order').onSnapshot(s=>{catsCache=[];s.forEach(d=>catsCache.push({id:d.id,...d.data()}));renderCats();renderAdminCategoryOptions()});
+    db.collection('products').onSnapshot(s=>{productsCache=[];s.forEach(d=>productsCache.push({id:d.id,...d.data()}));renderProducts();document.getElementById('statProducts').textContent=productsCache.length});
+    db.collection('orders').where('status','==','success').onSnapshot(s=>{document.getElementById('statOrders').textContent=s.size});
+    db.collection('users').onSnapshot(s=>{document.getElementById('statUsers').textContent=s.size});
+    db.collection('ads').onSnapshot(s=>renderAds(s));
+    db.collection('settings').doc('contact').onSnapshot(d=>{if(d.exists){contactCache=d.data();renderContactFooter()}});
 }
 loadData();
 
-function calcSellPrice(costUSD){const rate=settingsCache.exchangeRate||14500;const margin=settingsCache.profitMargin||20;return Math.round(costUSD*rate*(1+margin/100));}
-function formatSYP(a){return a.toLocaleString('ar-SA')+' ل.س';}
+function calcSellPrice(c){const r=settingsCache.exchangeRate||14500;const m=settingsCache.profitMargin||20;return Math.round(c*r*(1+m/100))}
+function formatSYP(a){return a.toLocaleString('ar-SA')+' ل.س ج'}
 
-function renderSectionTabs(){
-    const wrap=document.getElementById('sectionTabs');
-    let html='<div class="section-tab '+(activeSection==='all'?'active':'')+'" onclick="setSection(\'all\')"><i class="fas fa-th-large"></i> الكل</div>';
-    sectionsCache.forEach(s=>{html+='<div class="section-tab '+(activeSection===s.id?'active':'')+'" onclick="setSection(\''+s.id+'\')"><i class="'+s.icon+'"></i> '+s.name+'</div>';});
-    wrap.innerHTML=html;
-}
-function setSection(id){activeSection=id;activeCat='all';renderSectionTabs();renderCats();renderProducts();}
+function renderSectionTabs(){const w=document.getElementById('sectionTabs');let h='<div class="section-tab '+(activeSection==='all'?'active':'')+'" onclick="setSection(\'all\')"><i class="fas fa-th-large"></i> الكل</div>';sectionsCache.forEach(s=>{const bg=s.bgImg?'background-image:url('+s.bgImg+')':'';h+='<div class="section-tab '+(activeSection===s.id?'active':'')+'" style="'+bg+'" onclick="setSection(\''+s.id+'\')"><i class="'+s.icon+'"></i> '+s.name+'</div>'});w.innerHTML=h}
+function setSection(id){activeSection=id;activeCat='all';renderSectionTabs();renderCats();renderProducts()}
+function renderCats(){let cats=activeSection==='all'?catsCache:catsCache.filter(c=>c.sectionId===activeSection);const w=document.getElementById('catsWrap');let h='<div class="cat-chip '+(activeCat==='all'?'active':'')+'" onclick="setCat(\'all\')"><i class="fas fa-border-all"></i> الكل</div>';cats.forEach(c=>{h+='<div class="cat-chip '+(activeCat===c.id?'active':'')+'" onclick="setCat(\''+c.id+'\')"><img src="'+c.img+'" onerror="this.style.display=\'none\'"> '+c.name+'</div>'});w.innerHTML=h}
+function setCat(id){activeCat=id;renderCats();renderProducts()}
+function handleSearchInput(){const q=document.getElementById('searchIn').value.trim();if(q===SECRET_KEYWORD){document.getElementById('searchIn').value='';document.getElementById('mainSite').style.display='none';document.getElementById('adminPanel').classList.add('active');loadAdminData();return}renderProducts(q)}
 
-function renderCats(){
-    let cats=activeSection==='all'?catsCache:catsCache.filter(c=>c.sectionId===activeSection);
-    const wrap=document.getElementById('catsWrap');
-    let html='<div class="cat-chip '+(activeCat==='all'?'active':'')+'" onclick="setCat(\'all\')">الكل</div>';
-    cats.forEach(c=>{html+='<div class="cat-chip '+(activeCat===c.id?'active':'')+'" onclick="setCat(\''+c.id+'\')"><img src="'+c.img+'" alt="'+c.name+'"> '+c.name+'</div>';});
-    wrap.innerHTML=html;
-}
-function setCat(id){activeCat=id;renderCats();renderProducts();}
-
-function handleSearchInput(){const q=document.getElementById('searchIn').value.trim();if(q===SECRET_KEYWORD){document.getElementById('searchIn').value='';document.getElementById('mainSite').style.display='none';document.getElementById('adminPanel').classList.add('active');loadAdminData();toast('success','مرحباً','تم الدخول إلى لوحة التحكم');return;}renderProducts(q);}
-
-function renderProducts(filter=''){
-    let items=productsCache;
-    if(activeSection!=='all')items=items.filter(p=>p.sectionId===activeSection);
-    if(activeCat!=='all')items=items.filter(p=>p.categoryId===activeCat);
-    if(filter)items=items.filter(p=>p.name.includes(filter)||(p.desc&&p.desc.includes(filter)));
-    const grid=document.getElementById('pgrid');
-    if(items.length===0){grid.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--txt3)"><i class="fas fa-inbox" style="font-size:36px;margin-bottom:12px;display:block"></i>لا توجد منتجات - قم بتهيئة البيانات من لوحة التحكم</div>';return;}
-    grid.innerHTML=items.map(p=>{
-        const sp=calcSellPrice(p.costUSD);
-        let badge=p.badge==='hot'?'<div class="pcard-badge hot">الأكثر مبيعاً</div>':p.badge==='new'?'<div class="pcard-badge new">جديد</div>':'';
-        return '<div class="pcard" onclick="openPurchase(\''+p.id+'\')"><div class="pcard-img"><img src="'+p.img+'" alt="'+p.name+'" loading="lazy">'+badge+'</div><div class="pcard-info"><h3>'+p.name+'</h3><p class="pdesc">'+(p.desc||'')+'</p><div class="pcard-pr"><span class="pprice">'+formatSYP(sp)+'</span><button class="buy-btn" onclick="event.stopPropagation();openPurchase(\''+p.id+'\')">شراء</button></div></div></div>';
-    }).join('');
+function getProductMinPrice(p){
+    if(p.pricingType==='fixed'&&p.variants&&p.variants.length>0){return Math.min(...p.variants.map(v=>v.costUSD))}
+    if(p.pricingType==='packages'&&p.packages&&p.packages.length>0){return Math.min(...p.packages.map(pk=>pk.amount*p.baseCostPerUnitUSD))}
+    if(p.pricingType==='range'){return p.minQty*p.costPerUnitUSD}
+    return p.costUSD||0;
 }
 
-function renderAds(snap){if(snap.empty){document.getElementById('adsSection').style.display='none';return;}document.getElementById('adsSection').style.display='block';document.getElementById('adsGrid').innerHTML=snap.docs.map(d=>{const ad=d.data();const content=ad.type==='image'?'<img src="'+ad.content+'" alt="'+ad.title+'">':'<div class="ad-card-text">'+ad.content+'</div>';const ls=ad.link?'<a href="'+ad.link+'" target="_blank" style="text-decoration:none;color:inherit">':'';const le=ad.link?'</a>':'';return '<div class="ad-card">'+ls+content+'<div class="ad-card-content"><h3>'+ad.title+'</h3></div>'+le+'</div>';}).join('');}
+function renderProducts(filter=''){let items=productsCache;if(activeSection!=='all')items=items.filter(p=>p.sectionId===activeSection);if(activeCat!=='all')items=items.filter(p=>p.categoryId===activeCat);if(filter)items=items.filter(p=>p.name.includes(filter)||(p.desc&&p.desc.includes(filter)));const grid=document.getElementById('pgrid');if(items.length===0){grid.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--txt3)"><i class="fas fa-inbox" style="font-size:36px;margin-bottom:12px;display:block"></i>لا توجد منتجات</div>';return}grid.innerHTML=items.map(p=>{const minPrice=calcSellPrice(getProductMinPrice(p));let badge=p.badge==='hot'?'<div class="pcard-badge hot">الأكثر مبيعاً</div>':p.badge==='new'?'<div class="pcard-badge new">جديد</div>':'';const priceText=(p.pricingType==='fixed'&&!p.variants)?formatSYP(minPrice):'يبدأ من '+formatSYP(minPrice);return '<div class="pcard" onclick="openPurchase(\''+p.id+'\')"><div class="pcard-img"><img src="'+p.img+'" alt="'+p.name+'" loading="lazy" onerror="this.src=\'https://img.icons8.com/fluency/240/controller.png\'">'+badge+'</div><div class="pcard-info"><h3>'+p.name+'</h3><p class="pdesc">'+(p.desc||'')+'</p><div class="pcard-pr"><span class="pprice" style="font-size:13px">'+priceText+'</span><button class="buy-btn" onclick="event.stopPropagation();openPurchase(\''+p.id+'\')">شراء</button></div></div></div>'}).join('')}
 
-function renderContactFooter(){const c=contactCache;if(c.whatsapp){document.getElementById('footerWhatsapp').style.display='flex';document.getElementById('footerWhatsapp').href='https://wa.me/'+c.whatsapp;document.getElementById('footerWhatsappText').textContent=c.whatsapp;}if(c.telegram){document.getElementById('footerTelegram').style.display='flex';document.getElementById('footerTelegram').href='https://t.me/'+c.telegram.replace('@','');document.getElementById('footerTelegramText').textContent=c.telegram;}if(c.phone){document.getElementById('footerPhone').style.display='flex';document.getElementById('footerPhone').href='tel:'+c.phone;document.getElementById('footerPhoneText').textContent=c.phone;}}
+function renderAds(snap){if(snap.empty){document.getElementById('adsSection').style.display='none';return}document.getElementById('adsSection').style.display='block';document.getElementById('adsGrid').innerHTML=snap.docs.map(d=>{const ad=d.data();const content=ad.type==='image'?'<img src="'+ad.content+'" alt="'+ad.title+'">':'<div class="ad-card-text">'+ad.content+'</div>';return '<div class="ad-card">'+content+'<div class="ad-card-content"><h3>'+ad.title+'</h3></div></div>'}).join('')}
+function renderContactFooter(){const c=contactCache;if(c.whatsapp){document.getElementById('footerWhatsapp').style.display='flex';document.getElementById('footerWhatsapp').href='https://wa.me/'+c.whatsapp;document.getElementById('footerWhatsappText').textContent=c.whatsapp}if(c.telegram){document.getElementById('footerTelegram').style.display='flex';document.getElementById('footerTelegram').href='https://t.me/'+c.telegram.replace('@','');document.getElementById('footerTelegramText').textContent=c.telegram}}
+
+// ========== نظام الشراء الديناميكي ==========
+let currentPurchaseData={productId:null,selectedCostUSD:0};
 
 async function openPurchase(pid){
-    if(!currentAccountId){initAccount();return;}
+    if(!currentAccountId){initAccount();return}
     const p=productsCache.find(x=>x.id===pid);if(!p)return;
-    const sp=calcSellPrice(p.costUSD);
-    let pmOpts='';
-    try{const pmSnap=await db.collection('paymentMethods').get();pmOpts=pmSnap.docs.map(d=>'<option value="'+d.id+'">'+d.data().name+'</option>').join('');}catch(e){pmOpts='<option>لا توجد طرق دفع - قم بالتهيئة أولاً</option>';}
-    document.getElementById('purchaseContent').innerHTML='<h2>'+p.name+'</h2><div style="background:var(--bg3);border-radius:12px;padding:16px;margin:16px 0"><div style="display:flex;justify-content:space-between"><span style="color:var(--txt2)">السعر</span><strong style="color:var(--emerald);font-size:18px">'+formatSYP(sp)+'</strong></div></div><div class="fg"><label>معرف اللاعب / الحساب</label><input type="text" id="buyPlayerId" placeholder="أدخل المعرف"></div><div class="fg"><label>طريقة الدفع</label><select id="buyPayMethod" onchange="showPayMethodInfo()">'+pmOpts+'</select></div><div id="payMethodInfo"></div><div class="fg"><label>ملاحظات</label><input type="text" id="buyNotes" placeholder="اختياري"></div><button class="btn btn-p btn-lg" style="width:100%;justify-content:center" onclick="confirmPurchase(\''+p.id+'\','+sp+')"><i class="fas fa-check-circle"></i> تأكيد الطلب</button>';
+    let pmOpts='';try{const pmSnap=await db.collection('paymentMethods').get();pmOpts=pmSnap.docs.map(d=>'<option value="'+d.id+'">'+d.data().name+'</option>').join('')}catch(e){}
+    
+    let pricingHTML='';
+    currentPurchaseData={productId:pid,selectedCostUSD:0};
+    const rate=settingsCache.exchangeRate||14500;const margin=settingsCache.profitMargin||20;
+
+    if(p.pricingType==='fixed'&&p.variants&&p.variants.length>0){
+        pricingHTML='<div class="fg"><label>اختر الكمية</label><div class="variant-list" id="variantList">';
+        p.variants.forEach((v,i)=>{
+            const sp=calcSellPrice(v.costUSD);
+            const sel=i===0?'selected':'';
+            pricingHTML+='<div class="variant-item '+sel+'" onclick="selectVariant(this,'+v.costUSD+','+sp+')"><div class="v-radio"></div><div class="v-info"><div class="v-name">'+v.label+'</div></div><div class="v-price">'+formatSYP(sp)+'</div></div>';
+        });
+        pricingHTML+='</div></div>';
+        currentPurchaseData.selectedCostUSD=p.variants[0].costUSD;
+    } 
+    else if(p.pricingType==='packages'&&p.packages&&p.packages.length>0){
+        pricingHTML='<div class="fg"><label>اختر الباقة</label><div class="variant-list" id="variantList">';
+        p.packages.forEach((pk,i)=>{
+            const costUSD=pk.amount*p.baseCostPerUnitUSD;const sp=calcSellPrice(costUSD);
+            const sel=i===0?'selected':'';
+            pricingHTML+='<div class="variant-item '+sel+'" onclick="selectVariant(this,'+costUSD+','+sp+')"><div class="v-radio"></div><div class="v-info"><div class="v-name">'+pk.label+'</div></div><div class="v-price">'+formatSYP(sp)+'</div></div>';
+        });
+        pricingHTML+='</div></div>';
+        currentPurchaseData.selectedCostUSD=p.packages[0].amount*p.baseCostPerUnitUSD;
+    }
+    else if(p.pricingType==='range'){
+        const minPrice=calcSellPrice(p.minQty*p.costPerUnitUSD);
+        pricingHTML='<div class="fg"><label>أدخل الكمية (الحد الأدنى: '+p.minQty+' - الحد الأقصى: '+p.maxQty+')</label><input type="number" id="rangeQtyInput" min="'+p.minQty+'" max="'+p.maxQty+'" value="'+p.minQty+'" oninput="updateRangePrice()"></div>';
+        pricingHTML+='<div style="background:var(--bg3);border-radius:8px;padding:10px;text-align:center;font-size:18px;font-weight:900;color:var(--emerald)" id="rangePriceDisplay">'+minPrice+' ل.س ج</div>';
+        currentPurchaseData.selectedCostUSD=p.minQty*p.costPerUnitUSD;
+    }
+    else {
+        const sp=calcSellPrice(p.costUSD||0);
+        pricingHTML='<div style="background:var(--bg3);border-radius:8px;padding:10px;text-align:center;font-size:18px;font-weight:900;color:var(--emerald)">'+formatSYP(sp)+'</div>';
+        currentPurchaseData.selectedCostUSD=p.costUSD||0;
+    }
+
+    document.getElementById('purchaseContent').innerHTML='<h2>'+p.name+'</h2><p style="text-align:center;color:var(--txt2);font-size:12px;margin-bottom:16px">'+(p.desc||'')+'</p>'+pricingHTML+'<div class="fg"><label>معرف اللاعب / الحساب</label><input type="text" id="buyPlayerId" placeholder="أدخل المعرف"></div><div class="fg"><label>طريقة الدفع</label><select id="buyPayMethod" onchange="showPayMethodInfo()">'+pmOpts+'</select></div><div id="payMethodInfo"></div><div class="fg"><label>ملاحظات</label><input type="text" id="buyNotes"></div><button class="btn btn-p btn-lg" style="width:100%;justify-content:center" onclick="confirmPurchase()"><i class="fas fa-check-circle"></i> تأكيد الطلب</button>';
+    
     if(pmOpts)showPayMethodInfo();
     openModal('purchaseModal');
 }
 
-async function showPayMethodInfo(){const pmId=document.getElementById('buyPayMethod').value;if(!pmId)return;try{const doc=await db.collection('paymentMethods').doc(pmId).get();const pm=doc.data();const wrap=document.getElementById('payMethodInfo');wrap.innerHTML='<div style="background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:12px"><div style="font-size:13px;font-weight:700;margin-bottom:6px"><i class="fas fa-credit-card" style="color:var(--emerald)"></i> '+pm.name+'</div><div style="font-size:12px;color:var(--txt2)">العنوان: <strong style="color:var(--emerald);direction:ltr;display:inline">'+pm.acc+'</strong></div>'+(pm.notes?'<div style="font-size:11px;color:var(--gold);margin-top:4px"><i class="fas fa-info-circle"></i> '+pm.notes+'</div>':'')+'<div class="qr-wrap" id="payQr" style="margin-top:8px"></div></div>';setTimeout(()=>{const qr=document.getElementById('payQr');if(qr){qr.innerHTML='';new QRCode(qr,{text:pm.acc,width:100,height:100});}},50);}catch(e){}}
-
-async function confirmPurchase(pid,sellPrice){const playerId=document.getElementById('buyPlayerId').value.trim();if(!playerId){toast('error','خطأ','أدخل معرف اللاعب');return;}const p=productsCache.find(x=>x.id===pid);try{await db.collection('orders').add({userId:currentAccountId,productName:p.name,playerRef:playerId,amount:sellPrice,status:'pending',payMethodId:document.getElementById('buyPayMethod').value,notes:document.getElementById('buyNotes')?.value?.trim()||'',createdAt:firebase.firestore.FieldValue.serverTimestamp()});closeModal('purchaseModal');toast('success','تم إنشاء الطلب','طلبك قيد المراجعة');}catch(e){toast('error','خطأ','تعذر إنشاء الطلب - تأكد من تهيئة قاعدة البيانات');}}
-
-async function showMyOrders(){if(!currentAccountId){initAccount();return;}try{const snap=await db.collection('orders').where('userId','==',currentAccountId).orderBy('createdAt','desc').get();const list=document.getElementById('ordersList');if(snap.empty){list.innerHTML='<div style="text-align:center;padding:30px;color:var(--txt3)">لا توجد طلبات</div>';}else{list.innerHTML=snap.docs.map(d=>{const o=d.data();const st=o.status==='success'?'مكتمل':o.status==='pending'?'قيد الانتظار':'فاشل';return '<div class="order-card" onclick="showOrderDetail(\''+d.id+'\')"><div class="order-top"><span class="order-id">'+d.id.substring(0,8)+'</span><span class="status-b '+o.status+'">'+st+'</span></div><div style="font-size:12px;color:var(--txt2);line-height:2"><div><strong>المنتج:</strong> '+o.productName+'</div><div><strong>المبلغ:</strong> '+formatSYP(o.amount)+'</div></div></div>';}).join('');}openModal('ordersModal');}catch(e){toast('error','خطأ','تعذر تحميل الطلبات');}}
-
-async function showOrderDetail(oid){try{const doc=await db.collection('orders').doc(oid).get();const o=doc.data();const st=o.status==='success'?'مكتمل':o.status==='pending'?'قيد الانتظار':'فاشل';document.getElementById('orderDetailContent').innerHTML='<h2 style="margin-bottom:16px">تفاصيل الطلب</h2><div style="background:var(--bg3);border-radius:12px;padding:16px;margin-bottom:16px"><div style="display:flex;justify-content:space-between;margin-bottom:8px"><span style="color:var(--txt2)">رقم الطلب</span><strong style="color:var(--emerald)">'+oid.substring(0,8)+'</strong></div><div style="display:flex;justify-content:space-between;margin-bottom:8px"><span style="color:var(--txt2)">الحالة</span><span class="status-b '+o.status+'">'+st+'</span></div><div style="display:flex;justify-content:space-between;margin-bottom:8px"><span style="color:var(--txt2)">المنتج</span><strong>'+o.productName+'</strong></div><div style="display:flex;justify-content:space-between;margin-bottom:8px"><span style="color:var(--txt2)">معرف اللاعب</span><strong style="direction:ltr">'+o.playerRef+'</strong></div><div style="display:flex;justify-content:space-between"><span style="color:var(--txt2)">المبلغ</span><strong style="color:var(--emerald)">'+formatSYP(o.amount)+'</strong></div></div><div style="text-align:center"><div style="font-size:12px;color:var(--txt3);margin-bottom:8px">رمز QR للطلب</div><div class="qr-wrap" id="orderQr"></div></div>';closeModal('ordersModal');openModal('orderDetailModal');setTimeout(()=>{const qr=document.getElementById('orderQr');if(qr){qr.innerHTML='';new QRCode(qr,{text:oid,width:120,height:120});}},100);}catch(e){}}
-
-function showSupportChat(){if(!currentAccountId){initAccount();return;}renderSupportChat();openModal('supportModal');}
-async function renderSupportChat(){try{const doc=await db.collection('supportMessages').doc(currentAccountId).get();const wrap=document.getElementById('supportMsgs');if(!doc.exists||!doc.data().messages){wrap.innerHTML='<p style="text-align:center;color:var(--txt3);padding:30px">ابدأ المحادثة مع الدعم</p>';return;}wrap.innerHTML=doc.data().messages.map(m=>'<div class="chat-msg '+(m.from==='user'?'user':'admin')+'"><div class="sender">'+(m.from==='user'?'أنت':'الدعم')+'</div>'+(m.text?'<div>'+m.text+'</div>':'')+(m.image?'<img src="'+m.image+'" style="max-width:180px">':'')+'<div class="time">'+(m.time?new Date(m.time).toLocaleTimeString('ar-SA'):'')+'</div></div>').join('');wrap.scrollTop=wrap.scrollHeight;}catch(e){}}
-async function sendSupportMsg(){const input=document.getElementById('supportIn');const text=input.value.trim();if(!text)return;try{const ref=db.collection('supportMessages').doc(currentAccountId);const doc=await ref.get();const msgs=doc.exists&&doc.data().messages?doc.data().messages:[];msgs.push({from:'user',text,time:Date.now()});await ref.set({messages:msgs},{merge:true});input.value='';renderSupportChat();}catch(e){toast('error','خطأ','تعذر إرسال الرسالة');}}
-
-// ========== لوحة التحكم ==========
-function goBackToSite(){document.getElementById('adminPanel').classList.remove('active');document.getElementById('mainSite').style.display='block';}
-function logoutAdmin(){goBackToSite();}
-function switchTab(el){document.querySelectorAll('.anav').forEach(a=>a.classList.remove('active'));el.classList.add('active');document.querySelectorAll('.atab').forEach(t=>t.classList.remove('active'));document.getElementById('tab-'+el.dataset.tab).classList.add('active');loadAdminData();}
-
-function renderAdminSectionOptions(){const sel=document.getElementById('npSection');if(sel)sel.innerHTML=sectionsCache.map(s=>'<option value="'+s.id+'">'+s.name+'</option>').join('');updateCategoryOptions();}
-function renderAdminCategoryOptions(){updateCategoryOptions();}
-function updateCategoryOptions(){const sectionId=document.getElementById('npSection')?.value;if(!sectionId)return;const cats=catsCache.filter(c=>c.sectionId===sectionId);const sel=document.getElementById('npCat');if(sel)sel.innerHTML=cats.map(c=>'<option value="'+c.id+'">'+c.name+'</option>').join('');}
-
-function loadAdminData(){
-    db.collection('orders').where('status','==','success').get().then(s=>{document.getElementById('adminSales').textContent=formatSYP(s.docs.reduce((a,d)=>a+d.data().amount,0));document.getElementById('adminDone').textContent=s.size;}).catch(()=>{});
-    db.collection('orders').where('status','==','pending').get().then(s=>document.getElementById('adminPending').textContent=s.size).catch(()=>{});
-    db.collection('users').get().then(s=>document.getElementById('adminUsers').textContent=s.size).catch(()=>{});
-    db.collection('orders').orderBy('createdAt','desc').limit(50).get().then(snap=>{const html=snap.docs.map(d=>{const o=d.data();const st=o.status==='success'?'مكتمل':o.status==='pending'?'قيد الانتظار':'فاشل';return '<tr><td style="font-weight:700;color:var(--emerald)">'+d.id.substring(0,8)+'</td><td style="font-size:10px">'+o.userId+'</td><td>'+o.productName+'</td><td>'+formatSYP(o.amount)+'</td><td><span class="status-b '+o.status+'">'+st+'</span></td><td><button class="btn btn-sm btn-s" onclick="adminChangeStatus(\''+d.id+'\',\''+o.status+'\')"><i class="fas fa-edit"></i></button></td></tr>';}).join('');document.getElementById('adminRecentOrders').innerHTML=html||'<tr><td colspan="6" style="text-align:center;color:var(--txt3)">لا توجد طلبات</td></tr>';document.getElementById('adminAllOrders').innerHTML=html||'<tr><td colspan="6" style="text-align:center;color:var(--txt3)">لا توجد طلبات</td></tr>';}).catch(()=>{});
-    document.getElementById('adminProducts').innerHTML=productsCache.map(p=>{const sp=calcSellPrice(p.costUSD);const sec=sectionsCache.find(s=>s.id===p.sectionId);const cat=catsCache.find(c=>c.id===p.categoryId);return '<tr><td>'+p.name+'</td><td>'+(sec?sec.name:'')+'</td><td>'+(cat?cat.name:'')+'</td><td>$'+p.costUSD.toFixed(2)+'</td><td style="color:var(--emerald)">'+formatSYP(sp)+'</td><td><button class="btn btn-sm btn-d" onclick="deleteProduct(\''+p.id+'\')"><i class="fas fa-trash"></i></button></td></tr>';}).join('')||'<tr><td colspan="6" style="text-align:center;color:var(--txt3)">لا توجد منتجات</td></tr>';
-    document.getElementById('exchangeRateIn').value=settingsCache.exchangeRate||14500;
-    document.getElementById('profitSlider').value=settingsCache.profitMargin||20;
-    document.getElementById('profitVal').textContent=(settingsCache.profitMargin||20)+'%';
-    db.collection('paymentMethods').get().then(snap=>{document.getElementById('pmList').innerHTML=snap.empty?'<div style="text-align:center;padding:20px;color:var(--txt3)">لا توجد طرق شحن</div>':snap.docs.map(d=>{const pm=d.data();return '<div class="pm-card"><div class="pm-qr" id="pmQr'+d.id+'"></div><div class="pm-info" style="flex:1"><h4>'+pm.name+'</h4><p>الحساب: <span style="color:var(--emerald);direction:ltr;display:inline">'+pm.acc+'</span></p>'+(pm.notes?'<p>'+pm.notes+'</p>':'')+'</div><button class="btn btn-sm btn-d" onclick="deletePM(\''+d.id+'\')"><i class="fas fa-trash"></i></button></div>';}).join('');snap.docs.forEach(d=>{setTimeout(()=>{const el=document.getElementById('pmQr'+d.id);if(el&&!el.hasChildNodes())new QRCode(el,{text:d.data().acc,width:80,height:80});},100);});}).catch(()=>{});
-    db.collection('settings').doc('contact').get().then(doc=>{if(doc.exists){const c=doc.data();document.getElementById('ctWhatsapp').value=c.whatsapp||'';document.getElementById('ctTelegram').value=c.telegram||'';document.getElementById('ctPhone').value=c.phone||'';}});
-    db.collection('ads').get().then(snap=>{document.getElementById('adminAdsList').innerHTML=snap.empty?'<div style="text-align:center;padding:20px;color:var(--txt3)">لا توجد إعلانات</div>':snap.docs.map(d=>{const ad=d.data();return '<div class="pm-card"><div style="flex:1"><h4>'+ad.title+'</h4><p style="font-size:11px;color:var(--txt2)">النوع: '+(ad.type==='image'?'صورة':'نصي')+'</p></div><button class="btn btn-sm btn-d" onclick="deleteAd(\''+d.id+'\')"><i class="fas fa-trash"></i></button></div>';}).join('');}).catch(()=>{});
-    db.collection('supportMessages').get().then(snap=>{document.getElementById('adminChatList').innerHTML=snap.empty?'<div style="text-align:center;padding:20px;color:var(--txt3);font-size:12px">لا توجد محادثات</div>':snap.docs.map(d=>'<div class="admin-chat-item" onclick="openAdminChat(\''+d.id+'\')"><div class="av"><i class="fas fa-user"></i></div><div style="font-size:13px;font-weight:700">'+d.id+'</div></div>').join('');}).catch(()=>{});
+function selectVariant(el,costUSD,sypPrice){
+    document.querySelectorAll('#variantList .variant-item').forEach(e=>e.classList.remove('selected'));
+    el.classList.add('selected');
+    currentPurchaseData.selectedCostUSD=costUSD;
 }
 
-async function adminChangeStatus(oid,current){const next=current==='pending'?'success':current==='success'?'failed':'pending';await db.collection('orders').doc(oid).update({status:next});loadAdminData();toast('info','تم','حالة الطلب: '+(next==='success'?'مكتمل':next==='pending'?'قيد الانتظار':'فاشل'));}
-function toggleAddProduct(){const f=document.getElementById('addProductForm');f.style.display=f.style.display==='none'?'block':'none';updateCategoryOptions();}
-async function addProduct(){const name=document.getElementById('npName').value.trim();const costUSD=parseFloat(document.getElementById('npCost').value);const sectionId=document.getElementById('npSection').value;const categoryId=document.getElementById('npCat').value;if(!name||!costUSD){toast('error','خطأ','أكمل الحقول');return;}await db.collection('products').add({name,sectionId,categoryId,costUSD,img:document.getElementById('npImg').value||'https://picsum.photos/seed/'+Date.now()+'/400/300',desc:document.getElementById('npDesc').value||name,badge:document.getElementById('npBadge').value});toggleAddProduct();loadAdminData();toast('success','تم','تم إضافة المنتج');}
-async function deleteProduct(id){await db.collection('products').doc(id).delete();loadAdminData();}
-function toggleAddPM(){const f=document.getElementById('addPMForm');f.style.display=f.style.display==='none'?'block':'none';}
-async function addPaymentMethod(){const name=document.getElementById('pmName').value.trim();const acc=document.getElementById('pmAcc').value.trim();if(!name||!acc){toast('error','خطأ','أكمل الحقول');return;}await db.collection('paymentMethods').add({name,acc,notes:document.getElementById('pmNotes').value});toggleAddPM();loadAdminData();toast('success','تم','تم إضافة طريقة الشحن');}
-async function deletePM(id){await db.collection('paymentMethods').doc(id).delete();loadAdminData();}
-async function saveExchangeRate(){const rate=parseInt(document.getElementById('exchangeRateIn').value);if(!rate){toast('error','خطأ','أدخل سعر الصرف');return;}await db.collection('settings').doc('general').set({exchangeRate:rate},{merge:true});settingsCache.exchangeRate=rate;renderProducts();toast('success','تم','سعر الصرف: '+rate+' ل.س');}
-async function applyProfit(){const margin=parseInt(document.getElementById('profitSlider').value);await db.collection('settings').doc('general').set({profitMargin:margin},{merge:true});settingsCache.profitMargin=margin;renderProducts();toast('success','تم','نسبة الربح: '+margin+'%');}
-function toggleAddAd(){const f=document.getElementById('addAdForm');f.style.display=f.style.display==='none'?'block':'none';}
-async function addAd(){const title=document.getElementById('adTitle').value.trim();const type=document.getElementById('adType').value;const content=document.getElementById('adContent').value.trim();if(!title||!content){toast('error','خطأ','أكمل الحقول');return;}await db.collection('ads').add({title,type,content,link:document.getElementById('adLink').value});toggleAddAd();loadAdminData();toast('success','تم','تم إضافة الإعلان');}
-async function deleteAd(id){await db.collection('ads').doc(id).delete();loadAdminData();}
-async function saveContact(){const whatsapp=document.getElementById('ctWhatsapp').value.trim();const telegram=document.getElementById('ctTelegram').value.trim();const phone=document.getElementById('ctPhone').value.trim();await db.collection('settings').doc('contact').set({whatsapp,telegram,phone});contactCache={whatsapp,telegram,phone};renderContactFooter();toast('success','تم','تم حفظ أرقام التواصل');}
-function openAdminChat(uid){currentAdminChat=uid;db.collection('supportMessages').doc(uid).onSnapshot(doc=>{const wrap=document.getElementById('adminChatMsgs');if(!doc.exists||!doc.data().messages){wrap.innerHTML='<p style="text-align:center;color:var(--txt3)">لا رسائل</p>';return;}wrap.innerHTML=doc.data().messages.map(m=>'<div class="chat-msg '+(m.from==='user'?'user':'admin')+'"><div class="sender">'+(m.from==='user'?'مستخدم':'الدعم')+'</div>'+(m.text?'<div>'+m.text+'</div>':'')+(m.image?'<img src="'+m.image+'" style="max-width:200px">':'')+'<div class="time">'+(m.time?new Date(m.time).toLocaleTimeString('ar-SA'):'')+'</div></div>').join('');wrap.scrollTop=wrap.scrollHeight;});}
-async function adminSendMsg(){if(!currentAdminChat)return;const text=document.getElementById('adminChatIn').value.trim();if(!text)return;const ref=db.collection('supportMessages').doc(currentAdminChat);const doc=await ref.get();const msgs=doc.exists&&doc.data().messages?doc.data().messages:[];msgs.push({from:'admin',text,time:Date.now()});await ref.set({messages:msgs},{merge:true});document.getElementById('adminChatIn').value='';}
-async function adminSendImage(e){if(!currentAdminChat)return;const file=e.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=async function(ev){const ref=db.collection('supportMessages').doc(currentAdminChat);const doc=await ref.get();const msgs=doc.exists&&doc.data().messages?doc.data().messages:[];msgs.push({from:'admin',image:ev.target.result,time:Date.now()});await ref.set({messages:msgs},{merge:true});};reader.readAsDataURL(file);e.target.value='';}
+function updateRangePrice(){
+    const p=productsCache.find(x=>x.id===currentPurchaseData.productId);if(!p)return;
+    let qty=parseInt(document.getElementById('rangeQtyInput').value)||p.minQty;
+    if(qty<p.minQty)qty=p.minQty;if(qty>p.maxQty)qty=p.maxQty;
+    document.getElementById('rangeQtyInput').value=qty;
+    const costUSD=qty*p.costPerUnitUSD;
+    currentPurchaseData.selectedCostUSD=costUSD;
+    document.getElementById('rangePriceDisplay').textContent=formatSYP(calcSellPrice(costUSD));
+}
 
-// ========== التهيئة - خطوة بخطوة مع انتظار كل خطوة ==========
-async function seedDatabase(){
-    const status=document.getElementById('seedStatus');
-    status.innerHTML='<div class="seed-progress"><div style="color:var(--gold);font-size:13px" id="seedMsg"><i class="fas fa-spinner fa-spin"></i> جاري التهيئة...</div><div class="bar"><div class="bar-fill" id="seedBar" style="width:0%"></div></div><div style="font-size:11px;color:var(--txt3);margin-top:6px" id="seedPct">0%</div></div>';
+async function showPayMethodInfo(){const pmId=document.getElementById('buyPayMethod').value;if(!pmId)return;try{const doc=await db.collection('paymentMethods').doc(pmId).get();const pm=doc.data();const bid='cpb_'+Date.now();document.getElementById('payMethodInfo').innerHTML='<div style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:12px"><div style="font-size:13px;font-weight:700;margin-bottom:8px"><i class="fas fa-credit-card" style="color:var(--emerald)"></i> '+pm.name+'</div><div style="font-size:11px;color:var(--txt2);margin-bottom:4px">العنوان / المحفظة:</div><div class="copy-row"><span class="copy-text">'+pm.acc+'</span><button class="copy-btn" id="'+bid+'" onclick="copyPaymentAcc(\''+pm.acc.replace(/'/g,"\\'")+'\',\''+bid+'\')"><i class="fas fa-copy"></i> نسخ</button></div>'+(pm.notes?'<div style="font-size:11px;color:var(--gold);margin-top:8px"><i class="fas fa-info-circle"></i> '+pm.notes+'</div>':'')+'<div class="qr-wrap" id="payQr" style="margin-top:10px"></div></div>';setTimeout(()=>{const q=document.getElementById('payQr');if(q){q.innerHTML='';new QRCode(q,{text:pm.acc,width:100,height:100})}},50)}catch(e){}}
 
+async function confirmPurchase(){
+    const playerId=document.getElementById('buyPlayerId').value.trim();
+    if(!playerId){toast('error','خطأ','أدخل معرف اللاعب');return}
+    const p=productsCache.find(x=>x.id===currentPurchaseData.productId);if(!p)return;
+    const sellPrice=calcSellPrice(currentPurchaseData.selectedCostUSD);
     try{
-        // الخطوة 1: إعدادات
-        setSeedProgress(2,'حفظ الإعدادات...');
-        await db.collection('settings').doc('general').set({profitMargin:20,exchangeRate:14500});
-        setSeedProgress(5,'حفظ أرقام التواصل...');
-        await db.collection('settings').doc('contact').set({whatsapp:'963999888777',telegram:'@shahnaw_support',phone:'0999888777'});
+        await db.collection('orders').add({userId:currentAccountId,productName:p.name,playerRef:playerId,amount:sellPrice,status:'pending',payMethodId:document.getElementById('buyPayMethod').value,notes:document.getElementById('buyNotes')?.value||'',createdAt:firebase.firestore.FieldValue.serverTimestamp()});
+        closeModal('purchaseModal');toast('success','تم إنشاء الطلب','طلبك قيد المراجعة');
+    }catch(e){toast('error','خطأ','تعذر إنشاء الطلب')}
+}
 
-        // الخطوة 2: الأقسام - واحد تلو الآخر
-        const sectionsData=[
-            {id:'games',name:'ألعاب موبايل',icon:'fas fa-gamepad',order:1},
-            {id:'subscriptions',name:'اشتراكات',icon:'fas fa-crown',order:2},
-            {id:'cards',name:'بطاقات',icon:'fas fa-id-card',order:3},
-            {id:'apps',name:'برامج',icon:'fas fa-laptop',order:4}
-        ];
-        for(let i=0;i<sectionsData.length;i++){
-            setSeedProgress(5+Math.round((i+1)/sectionsData.length*10),'حفظ القسم: '+sectionsData[i].name+'...');
-            await db.collection('sections').doc(sectionsData[i].id).set(sectionsData[i]);
+async function showMyOrders(){if(!currentAccountId){initAccount();return}try{const snap=await db.collection('orders').where('userId','==',currentAccountId).orderBy('createdAt','desc').get();const list=document.getElementById('ordersList');if(snap.empty){list.innerHTML='<div style="text-align:center;padding:30px;color:var(--txt3)">لا توجد طلبات</div>'}else{list.innerHTML=snap.docs.map(d=>{const o=d.data();const st=o.status==='success'?'مكتمل':o.status==='pending'?'قيد الانتظار':'فاشل';return '<div class="order-card"><div class="order-top"><span class="order-id">'+d.id.substring(0,8)+'</span><span class="status-b '+o.status+'">'+st+'</span></div><div style="font-size:12px;color:var(--txt2)"><strong>المنتج:</strong> '+o.productName+' | <strong>المبلغ:</strong> '+formatSYP(o.amount)+'</div></div>'}).join('')}openModal('ordersModal')}catch(e){toast('error','خطأ','تعذر التحميل')}}
+function showSupportChat(){if(!currentAccountId){initAccount();return}renderSupportChat();openModal('supportModal')}
+async function renderSupportChat(){try{const doc=await db.collection('supportMessages').doc(currentAccountId).get();const w=document.getElementById('supportMsgs');if(!doc.exists||!doc.data().messages){w.innerHTML='<p style="text-align:center;color:var(--txt3);padding:30px">ابدأ المحادثة</p>';return}w.innerHTML=doc.data().messages.map(m=>'<div class="chat-msg '+(m.from==='user'?'user':'admin')+'"><div class="sender">'+(m.from==='user'?'أنت':'الدعم')+'</div><div>'+(m.text||'')+'</div></div>').join('');w.scrollTop=w.scrollHeight}catch(e){}}
+async function sendSupportMsg(){const input=document.getElementById('supportIn');const text=input.value.trim();if(!text)return;try{const ref=db.collection('supportMessages').doc(currentAccountId);const doc=await ref.get();const msgs=doc.exists&&doc.data().messages?doc.data().messages:[];msgs.push({from:'user',text,time:Date.now()});await ref.set({messages:msgs},{merge:true});input.value='';renderSupportChat()}catch(e){toast('error','خطأ','تعذر الإرسال')}}
+
+function goBackToSite(){document.getElementById('adminPanel').classList.remove('active');document.getElementById('mainSite').style.display='block'}
+function logoutAdmin(){goBackToSite()}
+function switchTab(el){document.querySelectorAll('.anav').forEach(a=>a.classList.remove('active'));el.classList.add('active');document.querySelectorAll('.atab').forEach(t=>t.classList.remove('active'));document.getElementById('tab-'+el.dataset.tab).classList.add('active');loadAdminData()}
+
+function previewImg(e,prevId){const file=e.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=function(ev){const prev=document.getElementById(prevId);prev.src=ev.target.result;prev.style.display='block'};reader.readAsDataURL(file)}
+function compressImage(file,maxW=800){return new Promise(r=>{const reader=new FileReader();reader.onload=e=>{const img=new Image();img.onload=()=>{const canvas=document.createElement('canvas');let w=img.width,h=img.height;if(w>maxW){h*=maxW/w;w=maxW}canvas.width=w;canvas.height=h;canvas.getContext('2d').drawImage(img,0,0,w,h);r(canvas.toDataURL('image/jpeg',0.7))};img.src=e.target.result};reader.readAsDataURL(file)})}
+
+function toggleAddSection(){const f=document.getElementById('addSectionForm');f.style.display=f.style.display==='none'?'block':'none'}
+async function addSection(){const name=document.getElementById('secName').value.trim();const icon=document.getElementById('secIcon').value.trim()||'fas fa-folder';if(!name){toast('error','خطأ','أدخل اسم القسم');return}const file=document.getElementById('secBgImg').files[0];let bgImg='';if(file){bgImg=await compressImage(file)}const id=name.toLowerCase().replace(/\s+/g,'_')+Date.now();await db.collection('sections').doc(id).set({name,icon,bgImg,order:sectionsCache.length+1});toggleAddSection();toast('success','تم','تم إضافة القسم')}
+async function deleteSection(id){await db.collection('sections').doc(id).delete();toast('info','تم','تم حذف القسم')}
+function renderAdminSections(){document.getElementById('adminSections').innerHTML=sectionsCache.map(s=>'<tr><td><strong>'+s.name+'</strong></td><td><i class="'+s.icon+'"></i></td><td>'+(s.bgImg?'<img src="'+s.bgImg+'" class="img-preview">':'<span style="color:var(--txt3)">بدون</span>')+'</td><td><button class="btn btn-sm btn-d" onclick="deleteSection(\''+s.id+'\')"><i class="fas fa-trash"></i></button></td></tr>').join('')||'<tr><td colspan="4" style="text-align:center;color:var(--txt3)">لا توجد أقسام</td></tr>'}
+
+function renderAdminSectionOptions(){const s=document.getElementById('npSection');if(s)s.innerHTML=sectionsCache.map(s=>'<option value="'+s.id+'">'+s.name+'</option>').join('');updateCategoryOptions()}
+function renderAdminCategoryOptions(){updateCategoryOptions()}
+function updateCategoryOptions(){const sid=document.getElementById('npSection')?.value;if(!sid)return;const cats=catsCache.filter(c=>c.sectionId===sid);const s=document.getElementById('npCat');if(s)s.innerHTML=cats.map(c=>'<option value="'+c.id+'">'+c.name+'</option>').join('')}
+
+function loadAdminData(){
+    db.collection('orders').where('status','==','success').get().then(s=>{document.getElementById('adminSales').textContent=formatSYP(s.docs.reduce((a,d)=>a+d.data().amount,0));document.getElementById('adminDone').textContent=s.size}).catch(()=>{});
+    db.collection('orders').where('status','==','pending').get().then(s=>document.getElementById('adminPending').textContent=s.size).catch(()=>{});
+    db.collection('users').get().then(s=>document.getElementById('adminUsers').textContent=s.size).catch(()=>{});
+    db.collection('orders').orderBy('createdAt','desc').limit(50).get().then(snap=>{document.getElementById('adminAllOrders').innerHTML=snap.docs.map(d=>{const o=d.data();const st=o.status==='success'?'مكتمل':o.status==='pending'?'قيد الانتظار':'فاشل';return '<tr><td style="font-weight:700;color:var(--emerald)">'+d.id.substring(0,8)+'</td><td style="font-size:10px">'+o.userId+'</td><td>'+o.productName+'</td><td>'+formatSYP(o.amount)+'</td><td><span class="status-b '+o.status+'">'+st+'</span></td><td><button class="btn btn-sm btn-s" onclick="adminChangeStatus(\''+d.id+'\',\''+o.status+'\')"><i class="fas fa-edit"></i></button></td></tr>'}).join('')||'<tr><td colspan="6" style="text-align:center;color:var(--txt3)">لا توجد طلبات</td></tr>'}).catch(()=>{});
+    document.getElementById('adminProducts').innerHTML=productsCache.map(p=>'<tr><td>'+p.name+'</td><td>'+(sectionsCache.find(s=>s.id===p.sectionId)?.name||'')+'</td><td>$'+(p.costUSD||0).toFixed(2)+'</td><td><button class="btn btn-sm btn-d" onclick="deleteProduct(\''+p.id+'\')"><i class="fas fa-trash"></i></button></td></tr>').join('')||'<tr><td colspan="4" style="text-align:center;color:var(--txt3)">لا توجد منتجات</td></tr>';
+    document.getElementById('exchangeRateIn').value=settingsCache.exchangeRate||14500;document.getElementById('profitSlider').value=settingsCache.profitMargin||20;document.getElementById('profitVal').textContent=(settingsCache.profitMargin||20)+'%';
+    db.collection('paymentMethods').get().then(snap=>{document.getElementById('pmList').innerHTML=snap.empty?'<div style="text-align:center;padding:20px;color:var(--txt3)">لا توجد طرق شحن</div>':snap.docs.map(d=>{const pm=d.data();const bid='apm_'+d.id;return '<div class="pm-card"><div class="pm-info" style="flex:1"><h4>'+pm.name+'</h4><p>الحساب: <span style="color:var(--emerald);direction:ltr;display:inline">'+pm.acc+'</span></p><button class="copy-btn" style="margin-top:6px" id="'+bid+'" onclick="copyPaymentAcc(\''+pm.acc.replace(/'/g,"\\'")+'\',\''+bid+'\')"><i class="fas fa-copy"></i> نسخ</button></div><button class="btn btn-sm btn-d" onclick="deletePM(\''+d.id+'\')"><i class="fas fa-trash"></i></button></div>'}).join('')}).catch(()=>{});
+    db.collection('settings').doc('contact').get().then(doc=>{if(doc.exists){const c=doc.data();document.getElementById('ctWhatsapp').value=c.whatsapp||'';document.getElementById('ctTelegram').value=c.telegram||''}});
+    db.collection('supportMessages').get().then(snap=>{document.getElementById('adminChatList').innerHTML=snap.empty?'<div style="text-align:center;padding:20px;color:var(--txt3);font-size:12px">لا توجد محادثات</div>':snap.docs.map(d=>'<div class="admin-chat-item" onclick="openAdminChat(\''+d.id+'\')"><div class="av"><i class="fas fa-user"></i></div><div style="font-size:13px;font-weight:700">'+d.id+'</div></div>').join('')}).catch(()=>{});
+}
+
+async function adminChangeStatus(oid,current){const next=current==='pending'?'success':current==='success'?'failed':'pending';await db.collection('orders').doc(oid).update({status:next});loadAdminData()}
+function toggleAddProduct(){const f=document.getElementById('addProductForm');f.style.display=f.style.display==='none'?'block':'none';updateCategoryOptions()}
+async function addProduct(){const name=document.getElementById('npName').value.trim();const costUSD=parseFloat(document.getElementById('npCost').value);const sectionId=document.getElementById('npSection').value;const categoryId=document.getElementById('npCat').value;if(!name||!costUSD){toast('error','خطأ','أكمل الحقول');return}await db.collection('products').add({name,sectionId,categoryId,costUSD,pricingType:'fixed',img:document.getElementById('npImg').value||'https://img.icons8.com/fluency/240/controller.png',desc:document.getElementById('npDesc').value||name,badge:document.getElementById('npBadge').value});toggleAddProduct();loadAdminData();toast('success','تم','تم إضافة المنتج')}
+async function deleteProduct(id){await db.collection('products').doc(id).delete();loadAdminData()}
+function toggleAddPM(){const f=document.getElementById('addPMForm');f.style.display=f.style.display==='none'?'block':'none'}
+async function addPaymentMethod(){const name=document.getElementById('pmName').value.trim();const acc=document.getElementById('pmAcc').value.trim();if(!name||!acc){toast('error','خطأ','أكمل الحقول');return}await db.collection('paymentMethods').add({name,acc,notes:document.getElementById('pmNotes').value});toggleAddPM();loadAdminData();toast('success','تم','تم إضافة طريقة الشحن')}
+async function deletePM(id){await db.collection('paymentMethods').doc(id).delete();loadAdminData()}
+async function saveExchangeRate(){const rate=parseInt(document.getElementById('exchangeRateIn').value);if(!rate)return;await db.collection('settings').doc('general').set({exchangeRate:rate},{merge:true});settingsCache.exchangeRate=rate;renderProducts();toast('success','تم','تم تحديث السعر')}
+async function applyProfit(){const margin=parseInt(document.getElementById('profitSlider').value);await db.collection('settings').doc('general').set({profitMargin:margin},{merge:true});settingsCache.profitMargin=margin;renderProducts();toast('success','تم','تم تحديث الربح')}
+async function saveContact(){const whatsapp=document.getElementById('ctWhatsapp').value.trim();const telegram=document.getElementById('ctTelegram').value.trim();await db.collection('settings').doc('contact').set({whatsapp,telegram,phone:''});contactCache={whatsapp,telegram};renderContactFooter();toast('success','تم','حفظ التواصل')}
+function openAdminChat(uid){currentAdminChat=uid;db.collection('supportMessages').doc(uid).onSnapshot(doc=>{const w=document.getElementById('adminChatMsgs');if(!doc.exists||!doc.data().messages){w.innerHTML='<p style="text-align:center;color:var(--txt3)">لا رسائل</p>';return}w.innerHTML=doc.data().messages.map(m=>'<div class="chat-msg '+(m.from==='user'?'user':'admin')+'"><div class="sender">'+(m.from==='user'?'مستخدم':'الدعم')+'</div><div>'+(m.text||'')+'</div></div>').join('');w.scrollTop=w.scrollHeight})}
+async function adminSendMsg(){if(!currentAdminChat)return;const text=document.getElementById('adminChatIn').value.trim();if(!text)return;const ref=db.collection('supportMessages').doc(currentAdminChat);const doc=await ref.get();const msgs=doc.exists&&doc.data().messages?doc.data().messages:[];msgs.push({from:'admin',text,time:Date.now()});await ref.set({messages:msgs},{merge:true});document.getElementById('adminChatIn').value=''}
+
+// ========== الذكاء الاصطناعي (OpenRouter) ==========
+async function generateAIContent(){
+    const apiKey=document.getElementById('aiApiKey').value.trim();
+    const promptText=document.getElementById('aiPrompt').value.trim();
+    if(!promptText){toast('error','خطأ','أدخل ماذا تريد أن ننشئ');return}
+    
+    const statusDiv=document.getElementById('aiStatus');
+    statusDiv.innerHTML='<div class="seed-progress"><div style="color:var(--gold)" id="aiMsg"><i class="fas fa-spinner fa-spin"></i> جاري التوليد بالذكاء الاصطناعي...</div><div class="bar"><div class="bar-fill" id="aiBar" style="width:10%"></div></div></div>';
+
+    if(apiKey){
+        try {
+            document.getElementById('aiBar').style.width='30%';
+            document.getElementById('aiMsg').innerHTML='<i class="fas fa-spinner fa-spin"></i> الاتصال بـ OpenRouter AI...';
+            
+            const systemPrompt = `أنت مساعد لمنصة شحن رقمية. قم بتوليد بيانات JSON تحتوي على أقسام وفئات ومنتجات مناسبة للموضوع المطلوب. 
+يجب أن تحدد نوع التسعير لكل منتج:
+1- "fixed": للمنتجات ذات الكميات المحددة (مثل يوسي، جواهر). استخدم مصفوفة "variants" تحتوي على label و costUSD.
+2- "packages": للاشتراكات (مثل سبوتيفاي، نتفليكس). استخدم مصفوفة "packages" تحتوي على label و amount (عدد الأشهر) و baseCostPerUnitUSD (سعر الشهر الواحد بالدولار).
+3- "range": للمنتجات ذات الكميات المخصصة (مثل شحن رصيد، عملات حسب الاختيار). استخدم minQty و maxQty و costPerUnitUSD (سعر الوحدة الواحدة بالدولار).
+
+شكل JSON المطلوب:
+{"sections":[{"name":"اسم القسم","icon":"fas fa-xxx","order":1}],"categories":[{"name":"اسم الفئة","sectionName":"اسم القسم","img":"https://img.icons8.com/fluency/96/كلمة.png","order":1}],"products":[{"name":"اسم المنتج","sectionName":"اسم القسم","categoryName":"اسم الفئة","pricingType":"fixed أو packages أو range","variants":[{"label":"60 وحدة","costUSD":1.5}],"packages":[{"label":"شهر واحد","amount":1}],"baseCostPerUnitUSD":5.99,"minQty":10,"maxQty":5000,"costPerUnitUSD":0.01,"img":"https://img.icons8.com/fluency/240/كلمة.png","desc":"وصف قصير","badge":"hot أو new أو فارغ"}]}
+
+يجب أن تكون جميع الحقول المناسبة لنوع التسعير موجودة. الأسعار بالدولار واقعية. أجب فقط بـ JSON صالح بدون أي نص إضافي.`;
+            
+            const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer '+apiKey,
+                    'HTTP-Referer': window.location.href,
+                    'X-Title': 'شحن_NOW Platform'
+                },
+                body: JSON.stringify({
+                    model: 'openai/gpt-3.5-turbo', 
+                    messages: [
+                        {role:'system',content:systemPrompt},
+                        {role:'user',content:'الموضوع: '+promptText}
+                    ]
+                })
+            });
+            
+            const data = await response.json();
+            if(data.error){throw new Error(data.error.message)}
+            
+            document.getElementById('aiBar').style.width='70%';
+            document.getElementById('aiMsg').innerHTML='<i class="fas fa-spinner fa-spin"></i> حفظ البيانات...';
+            
+            const content = data.choices[0].message.content;
+            const jsonMatch = content.match(/\{[\s\S]*\}/);
+            if(!jsonMatch) throw new Error("لم يستطع قراءة JSON");
+            
+            const result = JSON.parse(jsonMatch[0]);
+            await saveAIData(result);
+            
+            document.getElementById('aiBar').style.width='100%';
+            document.getElementById('aiMsg').innerHTML='<i class="fas fa-check-circle" style="color:var(--success)"></i> تم التوليد بنجاح عبر OpenRouter AI!';
+            toast('success','تم','تم إنشاء المنتجات بالذكاء الاصطناعي');
+            
+        } catch(e) {
+            document.getElementById('aiMsg').innerHTML='<i class="fas fa-exclamation-circle" style="color:var(--danger)"></i> خطأ API: '+e.message+'. جاري الاستخدام المحلي...';
+            setTimeout(()=>localAIGeneration(promptText),1500);
         }
-
-        // الخطوة 3: الفئات - واحدة تلو الأخرى
-        const catsData=[
-            {id:'pubg',name:'PUBG Mobile',sectionId:'games',img:'https://picsum.photos/seed/pubgicon/100/100',order:1},
-            {id:'freefire',name:'Free Fire',sectionId:'games',img:'https://picsum.photos/seed/fficon/100/100',order:2},
-            {id:'roblox',name:'Roblox',sectionId:'games',img:'https://picsum.photos/seed/robloxicon/100/100',order:3},
-            {id:'fortnite',name:'Fortnite',sectionId:'games',img:'https://picsum.photos/seed/forticon/100/100',order:4},
-            {id:'clash',name:'Clash of Clans',sectionId:'games',img:'https://picsum.photos/seed/cocicon/100/100',order:5},
-            {id:'valorant',name:'Valorant',sectionId:'games',img:'https://picsum.photos/seed/valicon/100/100',order:6},
-            {id:'netflix',name:'Netflix',sectionId:'subscriptions',img:'https://picsum.photos/seed/netficon/100/100',order:1},
-            {id:'spotify',name:'Spotify',sectionId:'subscriptions',img:'https://picsum.photos/seed/spoticon/100/100',order:2},
-            {id:'youtube',name:'YouTube Premium',sectionId:'subscriptions',img:'https://picsum.photos/seed/yticon/100/100',order:3},
-            {id:'discord',name:'Discord Nitro',sectionId:'subscriptions',img:'https://picsum.photos/seed/discicon/100/100',order:4},
-            {id:'googleplay',name:'Google Play',sectionId:'cards',img:'https://picsum.photos/seed/gpicon/100/100',order:1},
-            {id:'playstation',name:'PlayStation',sectionId:'cards',img:'https://picsum.photos/seed/psicon/100/100',order:2},
-            {id:'xbox',name:'Xbox',sectionId:'cards',img:'https://picsum.photos/seed/xboxicon/100/100',order:3},
-            {id:'itunes',name:'iTunes',sectionId:'cards',img:'https://picsum.photos/seed/iticon/100/100',order:4},
-            {id:'windows',name:'Windows',sectionId:'apps',img:'https://picsum.photos/seed/winicon/100/100',order:1},
-            {id:'microsoft',name:'Microsoft 365',sectionId:'apps',img:'https://picsum.photos/seed/msicon/100/100',order:2},
-            {id:'vpn',name:'VPN',sectionId:'apps',img:'https://picsum.photos/seed/vpnicon/100/100',order:3}
-        ];
-        for(let i=0;i<catsData.length;i++){
-            setSeedProgress(15+Math.round((i+1)/catsData.length*10),'حفظ الفئة: '+catsData[i].name+'...');
-            await db.collection('categories').doc(catsData[i].id).set(catsData[i]);
-        }
-
-        // الخطوة 4: طرق الدفع
-        setSeedProgress(26,'حفظ طرق الدفع...');
-        await db.collection('paymentMethods').doc('pm1').set({name:'سيرياتيل كاش',acc:'0999888777',notes:'أرسل الحوالة باسم محمد موسى'});
-        setSeedProgress(28,'حفظ USDT...');
-        await db.collection('paymentMethods').doc('pm2').set({name:'USDT TRC20',acc:'TJxK7fBg8V5ZNsFprf3f9s9xY7zMKBz2aP',notes:'شبكة TRC20 فقط'});
-
-        // الخطوة 5: المنتجات - واحد تلو الآخر
-        const prodsData=[
-            {name:'PUBG Mobile 60 UC',sectionId:'games',categoryId:'pubg',costUSD:1.50,img:'https://picsum.photos/seed/pubg60uc/400/300',desc:'شحن 60 وحدة UC',badge:'hot'},
-            {name:'PUBG Mobile 325 UC',sectionId:'games',categoryId:'pubg',costUSD:7.50,img:'https://picsum.photos/seed/pubg325uc/400/300',desc:'شحن 325 وحدة UC',badge:''},
-            {name:'PUBG Mobile 660 UC',sectionId:'games',categoryId:'pubg',costUSD:14.50,img:'https://picsum.photos/seed/pubg660uc/400/300',desc:'شحن 660 وحدة UC',badge:'hot'},
-            {name:'PUBG Mobile 1800 UC',sectionId:'games',categoryId:'pubg',costUSD:38.00,img:'https://picsum.photos/seed/pubg1800uc/400/300',desc:'شحن 1800 وحدة UC',badge:''},
-            {name:'Royal Pass',sectionId:'games',categoryId:'pubg',costUSD:3.80,img:'https://picsum.photos/seed/pubgrpc/400/300',desc:'شحن Royal Pass',badge:'new'},
-            {name:'Free Fire 100 جوهرة',sectionId:'games',categoryId:'freefire',costUSD:1.00,img:'https://picsum.photos/seed/ff100d/400/300',desc:'شحن 100 جوهرة',badge:'new'},
-            {name:'Free Fire 310 جوهرة',sectionId:'games',categoryId:'freefire',costUSD:2.90,img:'https://picsum.photos/seed/ff310d/400/300',desc:'شحن 310 جوهرة',badge:''},
-            {name:'Free Fire 520 جوهرة',sectionId:'games',categoryId:'freefire',costUSD:4.70,img:'https://picsum.photos/seed/ff520d/400/300',desc:'شحن 520 جوهرة',badge:''},
-            {name:'Free Fire 1060 جوهرة',sectionId:'games',categoryId:'freefire',costUSD:9.00,img:'https://picsum.photos/seed/ff1060d/400/300',desc:'شحن 1060 جوهرة',badge:'hot'},
-            {name:'Free Fire 2180 جوهرة',sectionId:'games',categoryId:'freefire',costUSD:17.20,img:'https://picsum.photos/seed/ff2180d/400/300',desc:'شحن 2180 جوهرة',badge:''},
-            {name:'Roblox 400 Robux',sectionId:'games',categoryId:'roblox',costUSD:4.50,img:'https://picsum.photos/seed/roblox400/400/300',desc:'شحن 400 Robux',badge:''},
-            {name:'Roblox 800 Robux',sectionId:'games',categoryId:'roblox',costUSD:9.00,img:'https://picsum.photos/seed/roblox800/400/300',desc:'شحن 800 Robux',badge:'hot'},
-            {name:'Roblox 1700 Robux',sectionId:'games',categoryId:'roblox',costUSD:18.50,img:'https://picsum.photos/seed/roblox1700/400/300',desc:'شحن 1700 Robux',badge:''},
-            {name:'Roblox 4500 Robux',sectionId:'games',categoryId:'roblox',costUSD:45.00,img:'https://picsum.photos/seed/roblox4500/400/300',desc:'شحن 4500 Robux',badge:''},
-            {name:'Fortnite 1000 V-Bucks',sectionId:'games',categoryId:'fortnite',costUSD:7.99,img:'https://picsum.photos/seed/fort1k/400/300',desc:'شحن 1000 V-Bucks',badge:''},
-            {name:'Fortnite 2800 V-Bucks',sectionId:'games',categoryId:'fortnite',costUSD:19.99,img:'https://picsum.photos/seed/fort2800/400/300',desc:'شحن 2800 V-Bucks',badge:'hot'},
-            {name:'Fortnite 5000 V-Bucks',sectionId:'games',categoryId:'fortnite',costUSD:31.99,img:'https://picsum.photos/seed/fort5k/400/300',desc:'شحن 5000 V-Bucks',badge:''},
-            {name:'Clash of Clans 80 جوهرة',sectionId:'games',categoryId:'clash',costUSD:0.99,img:'https://picsum.photos/seed/coc80/400/300',desc:'شحن 80 جوهرة',badge:''},
-            {name:'Clash of Clans 500 جوهرة',sectionId:'games',categoryId:'clash',costUSD:4.99,img:'https://picsum.photos/seed/coc500/400/300',desc:'شحن 500 جوهرة',badge:'hot'},
-            {name:'Clash of Clans 1200 جوهرة',sectionId:'games',categoryId:'clash',costUSD:9.99,img:'https://picsum.photos/seed/coc1200/400/300',desc:'شحن 1200 جوهرة',badge:''},
-            {name:'Clash of Clans 2500 جوهرة',sectionId:'games',categoryId:'clash',costUSD:19.99,img:'https://picsum.photos/seed/coc2500/400/300',desc:'شحن 2500 جوهرة',badge:''},
-            {name:'Valorant 125 نقطة',sectionId:'games',categoryId:'valorant',costUSD:0.99,img:'https://picsum.photos/seed/val125/400/300',desc:'شحن 125 نقطة VP',badge:''},
-            {name:'Valorant 420 نقطة',sectionId:'games',categoryId:'valorant',costUSD:2.99,img:'https://picsum.photos/seed/val420/400/300',desc:'شحن 420 نقطة VP',badge:'hot'},
-            {name:'Valorant 700 نقطة',sectionId:'games',categoryId:'valorant',costUSD:4.99,img:'https://picsum.photos/seed/val700/400/300',desc:'شحن 700 نقطة VP',badge:''},
-            {name:'Valorant 1375 نقطة',sectionId:'games',categoryId:'valorant',costUSD:9.99,img:'https://picsum.photos/seed/val1375/400/300',desc:'شحن 1375 نقطة VP',badge:'new'},
-            {name:'Netflix Basic شهر',sectionId:'subscriptions',categoryId:'netflix',costUSD:6.99,img:'https://picsum.photos/seed/netfbasic/400/300',desc:'اشتراك Netflix Basic شهر',badge:''},
-            {name:'Netflix Standard شهر',sectionId:'subscriptions',categoryId:'netflix',costUSD:15.49,img:'https://picsum.photos/seed/netfstandard/400/300',desc:'اشتراك Netflix Standard شهر',badge:'hot'},
-            {name:'Netflix Premium شهر',sectionId:'subscriptions',categoryId:'netflix',costUSD:22.99,img:'https://picsum.photos/seed/netfpremium/400/300',desc:'اشتراك Netflix Premium شهر',badge:''},
-            {name:'Spotify فرد شهر',sectionId:'subscriptions',categoryId:'spotify',costUSD:5.99,img:'https://picsum.photos/seed/spotind/400/300',desc:'اشتراك Spotify فرد شهر',badge:''},
-            {name:'Spotify عائلي شهر',sectionId:'subscriptions',categoryId:'spotify',costUSD:9.99,img:'https://picsum.photos/seed/spotfam/400/300',desc:'اشتراك Spotify عائلي شهر',badge:'new'},
-            {name:'YouTube Premium فرد شهر',sectionId:'subscriptions',categoryId:'youtube',costUSD:7.99,img:'https://picsum.photos/seed/ytind/400/300',desc:'اشتراك YouTube Premium فرد شهر',badge:''},
-            {name:'YouTube Premium عائلي شهر',sectionId:'subscriptions',categoryId:'youtube',costUSD:12.99,img:'https://picsum.photos/seed/ytfam/400/300',desc:'اشتراك YouTube Premium عائلي شهر',badge:''},
-            {name:'Discord Nitro شهر',sectionId:'subscriptions',categoryId:'discord',costUSD:9.99,img:'https://picsum.photos/seed/discnitro/400/300',desc:'اشتراك Discord Nitro شهر',badge:''},
-            {name:'Discord Nitro سنة',sectionId:'subscriptions',categoryId:'discord',costUSD:99.99,img:'https://picsum.photos/seed/discnitroyear/400/300',desc:'اشتراك Discord Nitro سنة',badge:'new'},
-            {name:'Google Play $5',sectionId:'cards',categoryId:'googleplay',costUSD:5.00,img:'https://picsum.photos/seed/gp5/400/300',desc:'بطاقة Google Play $5',badge:''},
-            {name:'Google Play $10',sectionId:'cards',categoryId:'googleplay',costUSD:10.00,img:'https://picsum.photos/seed/gp10/400/300',desc:'بطاقة Google Play $10',badge:'hot'},
-            {name:'Google Play $25',sectionId:'cards',categoryId:'googleplay',costUSD:25.00,img:'https://picsum.photos/seed/gp25/400/300',desc:'بطاقة Google Play $25',badge:''},
-            {name:'Google Play $50',sectionId:'cards',categoryId:'googleplay',costUSD:50.00,img:'https://picsum.photos/seed/gp50/400/300',desc:'بطاقة Google Play $50',badge:''},
-            {name:'PlayStation $10',sectionId:'cards',categoryId:'playstation',costUSD:10.00,img:'https://picsum.photos/seed/ps10/400/300',desc:'بطاقة PlayStation $10',badge:''},
-            {name:'PlayStation $25',sectionId:'cards',categoryId:'playstation',costUSD:25.00,img:'https://picsum.photos/seed/ps25/400/300',desc:'بطاقة PlayStation $25',badge:'hot'},
-            {name:'PlayStation $50',sectionId:'cards',categoryId:'playstation',costUSD:50.00,img:'https://picsum.photos/seed/ps50/400/300',desc:'بطاقة PlayStation $50',badge:''},
-            {name:'Xbox $15',sectionId:'cards',categoryId:'xbox',costUSD:15.00,img:'https://picsum.photos/seed/xbox15/400/300',desc:'بطاقة Xbox $15',badge:''},
-            {name:'Xbox $25',sectionId:'cards',categoryId:'xbox',costUSD:25.00,img:'https://picsum.photos/seed/xbox25/400/300',desc:'بطاقة Xbox $25',badge:''},
-            {name:'Xbox $50',sectionId:'cards',categoryId:'xbox',costUSD:50.00,img:'https://picsum.photos/seed/xbox50/400/300',desc:'بطاقة Xbox $50',badge:''},
-            {name:'iTunes $10',sectionId:'cards',categoryId:'itunes',costUSD:10.00,img:'https://picsum.photos/seed/it10/400/300',desc:'بطاقة iTunes $10',badge:''},
-            {name:'iTunes $25',sectionId:'cards',categoryId:'itunes',costUSD:25.00,img:'https://picsum.photos/seed/it25/400/300',desc:'بطاقة iTunes $25',badge:'new'},
-            {name:'Windows 11 Home',sectionId:'apps',categoryId:'windows',costUSD:30.00,img:'https://picsum.photos/seed/winhome/400/300',desc:'مفتاح Windows 11 Home',badge:''},
-            {name:'Windows 11 Pro',sectionId:'apps',categoryId:'windows',costUSD:45.00,img:'https://picsum.photos/seed/winpro/400/300',desc:'مفتاح Windows 11 Pro',badge:'hot'},
-            {name:'Microsoft 365 فرد شهر',sectionId:'apps',categoryId:'microsoft',costUSD:4.50,img:'https://picsum.photos/seed/ms365m/400/300',desc:'اشتراك Microsoft 365 فرد شهر',badge:''},
-            {name:'Microsoft 365 فرد سنة',sectionId:'apps',categoryId:'microsoft',costUSD:40.00,img:'https://picsum.photos/seed/ms365y/400/300',desc:'اشتراك Microsoft 365 فرد سنة',badge:''},
-            {name:'Microsoft 365 عائلي سنة',sectionId:'apps',categoryId:'microsoft',costUSD:60.00,img:'https://picsum.photos/seed/ms365fam/400/300',desc:'اشتراك Microsoft 365 عائلي سنة',badge:'new'},
-            {name:'NordVPN شهر',sectionId:'apps',categoryId:'vpn',costUSD:4.50,img:'https://picsum.photos/seed/nordm/400/300',desc:'اشتراك NordVPN شهر',badge:''},
-            {name:'NordVPN سنتين',sectionId:'apps',categoryId:'vpn',costUSD:50.00,img:'https://picsum.photos/seed/nord2y/400/300',desc:'اشتراك NordVPN سنتين',badge:'hot'}
-        ];
-
-        for(let i=0;i<prodsData.length;i++){
-            const pct=28+Math.round((i+1)/prodsData.length*70);
-            setSeedProgress(pct,'حفظ المنتج: '+(i+1)+'/'+prodsData.length+' - '+prodsData[i].name);
-            try{
-                await db.collection('products').add(prodsData[i]);
-            }catch(err){
-                setSeedProgress(pct,'إعادة محاولة: '+prodsData[i].name);
-                await new Promise(r=>setTimeout(r,1000));
-                try{await db.collection('products').add(prodsData[i]);}catch(e2){}
-            }
-        }
-
-        setSeedProgress(100,'اكتمل!');
-        status.innerHTML='<div class="seed-progress"><div style="color:var(--success);font-size:14px"><i class="fas fa-check-circle"></i> تمت التهيئة بنجاح! تم إضافة '+prodsData.length+' منتج و '+catsData.length+' فئة</div></div>';
-        loadAdminData();
-        toast('success','تمت التهيئة','الموقع جاهز!');
-    }catch(e){
-        document.getElementById('seedMsg').innerHTML='<i class="fas fa-exclamation-circle" style="color:var(--danger)"></i> خطأ: '+e.message;
-        document.getElementById('seedMsg').style.color='var(--danger)';
-        toast('error','خطأ في التهيئة',e.message+'. تأكد من: 1) تفعيل Firestore 2) اختيار Test Mode 3) اتصال الإنترنت');
+    } else {
+        localAIGeneration(promptText);
     }
 }
 
-function setSeedProgress(pct,msg){
-    const bar=document.getElementById('seedBar');if(bar)bar.style.width=pct+'%';
-    const pctEl=document.getElementById('seedPct');if(pctEl)pctEl.textContent=pct+'%';
-    const msgEl=document.getElementById('seedMsg');if(msgEl&&msg)msgEl.innerHTML=(pct<100?'<i class="fas fa-spinner fa-spin"></i> ':'<i class="fas fa-check-circle"></i> ')+msg;
+async function localAIGeneration(topic){
+    document.getElementById('aiBar').style.width='30%';
+    document.getElementById('aiMsg').innerHTML='<i class="fas fa-spinner fa-spin"></i> توليد محلي ذكي...';
+    
+    const t=topic.toLowerCase();
+    let data={sections:[],categories:[],products:[]};
+    
+    if(t.includes('لعب')||t.includes('game')){
+        data.sections=[{name:'ألعاب',icon:'fas fa-gamepad',order:1}];
+        data.categories=[{name:'PUBG',sectionName:'ألعاب',img:'https://img.icons8.com/fluency/96/pubg.png',order:1},{name:'Free Fire',sectionName:'ألعاب',img:'https://img.icons8.com/fluency/96/free-fire.png',order:2},{name:'شحن رصيد',sectionName:'ألعاب',img:'https://img.icons8.com/fluency/96/wallet.png',order:3}];
+        data.products=[
+            {name:'PUBG Mobile UC',sectionName:'ألعاب',categoryName:'PUBG',pricingType:'fixed',variants:[{label:'60 UC',costUSD:1.5},{label:'325 UC',costUSD:7.5},{label:'660 UC',costUSD:14.5}],img:'https://img.icons8.com/fluency/240/pubg.png',desc:'شحن يوسي بوبجي',badge:'hot'},
+            {name:'Free Fire جواهر',sectionName:'ألعاب',categoryName:'Free Fire',pricingType:'fixed',variants:[{label:'100 جوهرة',costUSD:1},{label:'520 جوهرة',costUSD:4.7},{label:'1060 جوهرة',costUSD:9}],img:'https://img.icons8.com/fluency/240/free-fire.png',desc:'شحن جواهر فري فاير',badge:'new'},
+            {name:'شحن رصيد مخصص',sectionName:'ألعاب',categoryName:'شحن رصيد',pricingType:'range',minQty:100,maxQty:10000,costPerUnitUSD:0.005,img:'https://img.icons8.com/fluency/240/wallet.png',desc:'شحن رصيد حسب الكمية',badge:''}
+        ];
+    } else if(t.includes('اشتراك')||t.includes('netflix')||t.includes('spotify')){
+        data.sections=[{name:'اشتراكات',icon:'fas fa-crown',order:1}];
+        data.categories=[{name:'Netflix',sectionName:'اشتراكات',img:'https://img.icons8.com/fluency/96/netflix.png',order:1},{name:'Spotify',sectionName:'اشتراكات',img:'https://img.icons8.com/fluency/96/spotify--v1.png',order:2}];
+        data.products=[
+            {name:'Netflix Premium',sectionName:'اشتراكات',categoryName:'Netflix',pricingType:'packages',packages:[{label:'شهر واحد',amount:1},{label:'3 أشهر',amount:3},{label:'سنة كاملة',amount:12}],baseCostPerUnitUSD:15.49,img:'https://img.icons8.com/fluency/240/netflix.png',desc:'اشتراك نتفليكس بريميوم',badge:'hot'},
+            {name:'Spotify Premium',sectionName:'اشتراكات',categoryName:'Spotify',pricingType:'packages',packages:[{label:'شهر واحد',amount:1},{label:'6 أشهر',amount:6},{label:'سنة كاملة',amount:12}],baseCostPerUnitUSD:5.99,img:'https://img.icons8.com/fluency/240/spotify--v1.png',desc:'اشتراك سبوتيفاي بلا إعلانات',badge:'new'}
+        ];
+    } else {
+        data.sections=[{name:topic,icon:'fas fa-star',order:1}];
+        data.categories=[{name:topic+' - عام',sectionName:topic,img:'https://img.icons8.com/fluency/96/star.png',order:1}];
+        data.products=[
+            {name:'باقة أساسية',sectionName:topic,categoryName:topic+' - عام',pricingType:'fixed',variants:[{label:'باقة صغيرة',costUSD:5},{label:'باقة كبيرة',costUSD:15}],img:'https://img.icons8.com/fluency/240/star.png',desc:'باقة أساسية',badge:''},
+            {name:'كمية مخصصة',sectionName:topic,categoryName:topic+' - عام',pricingType:'range',minQty:1,maxQty:100,costPerUnitUSD:1,img:'https://img.icons8.com/fluency/240/star.png',desc:'اختر الكمية التي تريدها',badge:''}
+        ];
+    }
+    
+    document.getElementById('aiBar').style.width='70%';
+    document.getElementById('aiMsg').innerHTML='<i class="fas fa-spinner fa-spin"></i> حفظ البيانات...';
+    await saveAIData(data);
+    document.getElementById('aiBar').style.width='100%';
+    document.getElementById('aiMsg').innerHTML='<i class="fas fa-check-circle" style="color:var(--success)"></i> تم التوليد المحلي بنجاح! (لنتائج أفضل أدخل مفتاح OpenRouter API)';
+    toast('success','تم','تم إنشاء المنتجات');
 }
 
-function openModal(id){document.getElementById(id).classList.add('active');}
-function closeModal(id){document.getElementById(id).classList.remove('active');}
-function toast(type,title,msg){const c=document.getElementById('toastC');const t=document.createElement('div');t.className='toast '+type;const ic={success:'fa-check-circle',error:'fa-exclamation-circle',info:'fa-info-circle'};t.innerHTML='<i class="fas '+ic[type]+'" style="font-size:16px"></i><div><div style="font-size:12px;font-weight:700">'+title+'</div><div style="font-size:11px;color:var(--txt2)">'+msg+'</div></div>';c.appendChild(t);setTimeout(()=>{t.classList.add('removing');setTimeout(()=>t.remove(),300);},3500);}
+async function saveAIData(data){
+    const secMap={};const catMap={};
+    for(let sec of data.sections){const id=sec.name.toLowerCase().replace(/\s+/g,'_')+Date.now();secMap[sec.name]=id;await db.collection('sections').doc(id).set({name:sec.name,icon:sec.icon,order:sec.order||1,bgImg:''})}
+    for(let cat of data.categories){const id=cat.name.toLowerCase().replace(/\s+/g,'_')+Date.now();catMap[cat.name]=id;await db.collection('categories').doc(id).set({name:cat.name,sectionId:secMap[cat.sectionName]||'',img:cat.img,order:cat.order||1})}
+    for(let prod of data.products){
+        const productData={name:prod.name,sectionId:secMap[prod.sectionName]||'',categoryId:catMap[prod.categoryName]||'',pricingType:prod.pricingType||'fixed',img:prod.img,desc:prod.desc||prod.name,badge:prod.badge||'',costUSD:prod.costUSD||0};
+        if(prod.pricingType==='fixed'&&prod.variants){productData.variants=prod.variants;productData.costUSD=prod.variants[0]?.costUSD||0}
+        if(prod.pricingType==='packages'&&prod.packages){productData.packages=prod.packages;productData.baseCostPerUnitUSD=prod.baseCostPerUnitUSD||0;productData.costUSD=prod.baseCostPerUnitUSD||0}
+        if(prod.pricingType==='range'){productData.minQty=prod.minQty||1;productData.maxQty=prod.maxQty||100;productData.costPerUnitUSD=prod.costPerUnitUSD||0.01;productData.costUSD=prod.costPerUnitUSD||0}
+        await db.collection('products').add(productData);
+    }
+    loadAdminData();
+}
+
+function openModal(id){document.getElementById(id).classList.add('active')}
+function closeModal(id){document.getElementById(id).classList.remove('active')}
+function toast(type,title,msg){const c=document.getElementById('toastC');const t=document.createElement('div');t.className='toast '+type;const ic={success:'fa-check-circle',error:'fa-exclamation-circle',info:'fa-info-circle'};t.innerHTML='<i class="fas '+ic[type]+'" style="font-size:16px"></i><div><div style="font-size:12px;font-weight:700">'+title+'</div><div style="font-size:11px;color:var(--txt2)">'+msg+'</div></div>';c.appendChild(t);setTimeout(()=>{t.classList.add('removing');setTimeout(()=>t.remove(),300)},3500)}
 </script>
 </body>
 </html>
